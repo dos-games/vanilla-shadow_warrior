@@ -1,0 +1,66 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "actor.c" 32
+extern int DoActorDie(short SpriteNum,short weapon);
+//#line "actor.c" 152
+extern void DoDebrisCurrent(SPRITEp sp);
+//#line "actor.c" 182
+extern int DoActorSectorDamage(short SpriteNum);
+//#line "actor.c" 244
+extern int move_debris(short SpriteNum,long xchange,long ychange,long zchange);
+//#line "actor.c" 260
+extern int DoActorDebris(short SpriteNum);
+//#line "actor.c" 313
+extern int DoFireFly(short SpriteNum);
+//#line "actor.c" 335
+extern int DoGenerateSewerDebris(short SpriteNum);
+//#line "actor.c" 368
+extern void KeepActorOnFloor(short SpriteNum);
+//#line "actor.c" 452
+extern int DoActorBeginSlide(short SpriteNum,short ang,short vel,short dec);
+//#line "actor.c" 472
+extern int DoActorSlide(short SpriteNum);
+//#line "actor.c" 500
+extern int DoActorBeginJump(short SpriteNum);
+//#line "actor.c" 529
+extern int DoActorJump(short SpriteNum);
+//#line "actor.c" 575
+extern int DoActorBeginFall(short SpriteNum);
+//#line "actor.c" 602
+extern int DoActorFall(short SpriteNum);
+//#line "actor.c" 623
+extern int DoActorStopFall(short SpriteNum);
+//#line "actor.c" 668
+extern int DoActorDeathMove(short SpriteNum);
+//#line "actor.c" 699
+extern int DoBeginJump(short SpriteNum);
+//#line "actor.c" 716
+extern int DoJump(short SpriteNum);
+//#line "actor.c" 756
+extern int DoBeginFall(short SpriteNum);
+//#line "actor.c" 794
+extern int DoFall(short SpriteNum);

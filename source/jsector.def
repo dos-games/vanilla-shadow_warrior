@@ -1,0 +1,59 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "jsector.c" 88
+extern void SpawnWallSound(short sndnum,short i);
+//#line "jsector.c" 113
+extern short CheckTileSound(short picnum);
+//#line "jsector.c" 179
+extern void JS_SpriteSetup(void );
+//#line "jsector.c" 286
+extern void JS_InitMirrors(void );
+//#line "jsector.c" 424
+extern void drawroomstotile(long daposx,long daposy,long daposz,short daang,long dahoriz,short dacursectnum,short tilenume);
+//#line "jsector.c" 521
+extern void JS_DrawMirrors(PLAYERp pp,long tx,long ty,long tz,short tpang,long tphoriz);
+//#line "jsector.c" 774
+extern void DoAutoSize(SPRITEp tspr);
+//#line "jsector.c" 926
+extern void JAnalyzeSprites(SPRITEp tspr);
+//#line "jsector.c" 1045
+extern void InsertOrgTile(OrgTileP tp,OrgTileListP thelist);
+//#line "jsector.c" 1066
+extern OrgTileP InitOrgTile(OrgTileListP thelist);
+//#line "jsector.c" 1082
+extern void KillOrgTile(OrgTileP tp);
+//#line "jsector.c" 1093
+extern OrgTileP FindOrgTile(short index,OrgTileListP thelist);
+//#line "jsector.c" 1111
+extern void JS_UnInitLockouts(void );
+//#line "jsector.c" 1143
+extern void JS_InitLockouts(void );
+//#line "jsector.c" 1218
+extern void JS_ToggleLockouts(void );
+//#line "jsector.c" 1295
+extern void UnlockKeyLock(short key_num,short hitsprite);
+extern void JS_ProcessEchoSpot(void);

@@ -1,0 +1,470 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "weapon.c" 2274
+extern BOOL MissileHitMatch(short Weapon,short WeaponNum,short hitsprite);
+//#line "weapon.c" 2377
+extern int SpawnShrapX(short SpriteNum);
+//#line "weapon.c" 2384
+extern int DoLavaErupt(short SpriteNum);
+//#line "weapon.c" 2448
+extern void UserShrapSetup(SHRAPp shrap,STATEp state,long num_shrap);
+//#line "weapon.c" 2483
+extern int SpawnShrap(short ParentNum,short Secondary);
+//#line "weapon.c" 3390
+extern int DoShrapMove(SHORT SpriteNum);
+//#line "weapon.c" 3401
+extern int DoShrapWallFloor(SHORT SpriteNum);
+//#line "weapon.c" 3441
+extern int DoVomit(short SpriteNum);
+//#line "weapon.c" 3479
+extern int DoVomitSplash(short SpriteNum);
+//#line "weapon.c" 3494
+extern int DoFastShrapJumpFall(short SpriteNum);
+//#line "weapon.c" 3511
+extern int DoTracerShrap(short SpriteNum);
+//#line "weapon.c" 3528
+extern int DoShrapJumpFall(short SpriteNum);
+//#line "weapon.c" 3571
+extern int DoShrapDamage(short SpriteNum);
+//#line "weapon.c" 3618
+extern int SpawnBlood(short SpriteNum,short Weapon,short hitang,long hitx,long hity,long hitz);
+//#line "weapon.c" 3857
+extern BOOL VehicleMoveHit(short SpriteNum);
+//#line "weapon.c" 3970
+extern BOOL WeaponMoveHit(short SpriteNum);
+//#line "weapon.c" 4192
+extern int DoUziSmoke(short SpriteNum);
+//#line "weapon.c" 4206
+extern int DoShotgunSmoke(short SpriteNum);
+//#line "weapon.c" 4220
+extern int DoMineSpark(short SpriteNum);
+//#line "weapon.c" 4235
+extern int DoFireballFlames(short SpriteNum);
+//#line "weapon.c" 4333
+extern int SetSuicide(short SpriteNum);
+//#line "weapon.c" 4353
+extern int DoActorScale(short SpriteNum);
+//#line "weapon.c" 4372
+extern int DoRipperGrow(short SpriteNum);
+//#line "weapon.c" 4391
+extern int ActorChooseDeath(short SpriteNum,short Weapon);
+//#line "weapon.c" 4512
+extern int ActorHealth(short SpriteNum,short amt);
+//#line "weapon.c" 4531
+extern int SopDamage(SECTOR_OBJECTp sop,short amt);
+//#line "weapon.c" 4550
+extern int SopCheckKill(SECTOR_OBJECTp sop);
+//#line "weapon.c" 4575
+extern int ActorPain(short SpriteNum);
+//#line "weapon.c" 4599
+extern int ActorPainPlasma(short SpriteNum);
+//#line "weapon.c" 4623
+extern int ActorStdMissile(short SpriteNum,short Weapon);
+//#line "weapon.c" 4655
+extern int ActorDamageSlide(short SpriteNum,short damage,short ang);
+//#line "weapon.c" 4696
+extern int PlayerDamageSlide(PLAYERp pp,short damage,short ang);
+//#line "weapon.c" 4734
+extern int GetDamage(short SpriteNum,short Weapon,short DamageNdx);
+//#line "weapon.c" 4781
+extern int RadiusGetDamage(short SpriteNum,short Weapon,long max_damage);
+//#line "weapon.c" 4820
+extern int PlayerCheckDeath(PLAYERp pp,short Weapon);
+//#line "weapon.c" 4894
+extern int StarBlood(short SpriteNum,short Weapon);
+//#line "weapon.c" 4916
+extern int DoDamage(short SpriteNum,short Weapon);
+//#line "weapon.c" 6042
+extern int DoDamageTest(short Weapon);
+//#line "weapon.c" 6090
+extern int DoHitscanDamage(short Weapon,short hitsprite);
+//#line "weapon.c" 6112
+extern int DoFlamesDamageTest(short Weapon);
+//#line "weapon.c" 6162
+extern short PrevWall(short wall_num);
+//#line "weapon.c" 6187
+extern void TraverseBreakableWalls(short start_sect,long x,long y,long z,short ang,long radius);
+//#line "weapon.c" 6247
+extern int DoExpDamageTest(short Weapon);
+//#line "weapon.c" 6408
+extern int DoMineExpMine(short Weapon);
+//#line "weapon.c" 6449
+extern int DoStar(SHORT Weapon);
+//#line "weapon.c" 6670
+extern int DoPlasmaDone(SHORT Weapon);
+//#line "weapon.c" 6689
+extern int MissileSeek(SHORT Weapon,SHORT delay_tics,SHORT aware_range,SHORT dang_shift,SHORT turn_limit,SHORT z_limit);
+//#line "weapon.c" 6764
+extern int ComboMissileSeek(SHORT Weapon,SHORT delay_tics,SHORT aware_range,SHORT dang_shift,SHORT turn_limit,SHORT z_limit);
+//#line "weapon.c" 6834
+extern int VectorMissileSeek(SHORT Weapon,SHORT delay_tics,SHORT,SHORT aware_range1,SHORT aware_range2);
+//#line "weapon.c" 6906
+extern int DoBlurExtend(SHORT Weapon,SHORT interval,SHORT blur_num);
+//#line "weapon.c" 6928
+extern int InitPlasmaFountain(SPRITEp wp,SPRITEp sp);
+//#line "weapon.c" 6954
+extern int DoPlasmaFountain(SHORT Weapon);
+//#line "weapon.c" 7000
+extern int DoPlasma(SHORT Weapon);
+//#line "weapon.c" 7079
+extern int DoCoolgFire(SHORT Weapon);
+//#line "weapon.c" 7107
+extern int DoEelFire(short Weapon);
+//#line "weapon.c" 7121
+extern void ScaleSpriteVector(short SpriteNum,long scale);
+//#line "weapon.c" 7131
+extern void WallBounce(short SpriteNum,short ang);
+//#line "weapon.c" 7172
+extern BOOL SlopeBounce(short SpriteNum,BOOL *hitwall);
+//#line "weapon.c" 7245
+extern int DoGrenade(SHORT Weapon);
+//#line "weapon.c" 7481
+extern int DoVulcanBoulder(SHORT Weapon);
+//#line "weapon.c" 7625
+extern int DoMineRangeTest(short Weapon,short range);
+//#line "weapon.c" 7676
+extern int DoMineStuck(SHORT Weapon);
+//#line "weapon.c" 7824
+extern int SetMineStuck(SHORT Weapon);
+//#line "weapon.c" 7841
+extern int DoMine(SHORT Weapon);
+//#line "weapon.c" 8004
+extern int DoPuff(short SpriteNum);
+//#line "weapon.c" 8017
+extern int DoRailPuff(short SpriteNum);
+//#line "weapon.c" 8029
+extern int DoBoltThinMan(SHORT Weapon);
+//#line "weapon.c" 8069
+extern int DoTracer(SHORT Weapon);
+//#line "weapon.c" 8103
+extern int DoTankShell(SHORT Weapon);
+//#line "weapon.c" 8135
+extern int DoTracerStart(SHORT Weapon);
+//#line "weapon.c" 8163
+extern int DoLaser(SHORT Weapon);
+//#line "weapon.c" 8209
+extern int DoLaserSight(SHORT Weapon);
+//#line "weapon.c" 8259
+extern int DoLaserStart(SHORT Weapon);
+//#line "weapon.c" 8281
+extern int DoLaserSightStart(SHORT Weapon);
+//#line "weapon.c" 8308
+extern int DoRail(SHORT Weapon);
+//#line "weapon.c" 8395
+extern int DoRailStart(SHORT Weapon);
+//#line "weapon.c" 8423
+extern int DoRocket(SHORT Weapon);
+//#line "weapon.c" 8500
+extern int DoMicroMini(SHORT Weapon);
+//#line "weapon.c" 8531
+extern int SpawnExtraMicroMini(SHORT Weapon);
+//#line "weapon.c" 8569
+extern int DoMicro(SHORT Weapon);
+//#line "weapon.c" 8646
+extern int DoUziBullet(SHORT Weapon);
+//#line "weapon.c" 8720
+extern int DoBoltSeeker(SHORT Weapon);
+//#line "weapon.c" 8756
+extern int DoBoltShrapnel(SHORT Weapon);
+//#line "weapon.c" 8762
+extern int DoBoltFatMan(SHORT Weapon);
+//#line "weapon.c" 8768
+extern int DoElectro(SHORT Weapon);
+//#line "weapon.c" 8825
+extern int DoLavaBoulder(SHORT Weapon);
+//#line "weapon.c" 8856
+extern int DoSpear(SHORT Weapon);
+//#line "weapon.c" 8888
+extern int SpawnCoolieExp(short SpriteNum);
+//#line "weapon.c" 8927
+extern int SpawnBasicExp(SHORT Weapon);
+//#line "weapon.c" 8969
+extern int SpawnFireballFlames(SHORT SpriteNum,SHORT enemy);
+//#line "weapon.c" 9101
+extern int SpawnFireballExp(SHORT Weapon);
+//#line "weapon.c" 9144
+extern int SpawnGoroFireballExp(SHORT Weapon);
+//#line "weapon.c" 9183
+extern int SpawnBoltExp(SHORT Weapon);
+//#line "weapon.c" 9224
+extern int SpawnTankShellExp(SHORT Weapon);
+//#line "weapon.c" 9263
+extern int SpawnNuclearSecondaryExp(SHORT Weapon,short ang);
+//#line "weapon.c" 9309
+extern int SpawnNuclearExp(SHORT Weapon);
+//#line "weapon.c" 9402
+extern int SpawnTracerExp(SHORT Weapon);
+//#line "weapon.c" 9447
+extern int SpawnMicroExp(SHORT Weapon);
+//#line "weapon.c" 9490
+extern int AddSpriteToSectorObject(short SpriteNum,SECTOR_OBJECTp sop);
+//#line "weapon.c" 9522
+extern int SpawnBigGunFlames(SHORT Weapon,SHORT Operator,SECTOR_OBJECTp sop);
+//#line "weapon.c" 9584
+extern int SpawnGrenadeSecondaryExp(SHORT Weapon,short ang);
+//#line "weapon.c" 9635
+extern int SpawnGrenadeSmallExp(SHORT Weapon);
+//#line "weapon.c" 9644
+extern int SpawnGrenadeExp(SHORT Weapon);
+//#line "weapon.c" 9707
+extern void SpawnExpZadjust(short Weapon,SPRITEp exp,long upper_zsize,long lower_zsize);
+//#line "weapon.c" 9756
+extern int SpawnMineExp(SHORT Weapon);
+//#line "weapon.c" 9801
+extern int InitMineShrap(short SpriteNum);
+//#line "weapon.c" 9858
+extern int DoMineExp(short SpriteNum);
+//#line "weapon.c" 9870
+extern int DoSectorExp(SHORT SpriteNum);
+//#line "weapon.c" 9882
+extern int SpawnSectorExp(SHORT Weapon);
+//#line "weapon.c" 9918
+extern int SpawnLargeExp(SHORT Weapon);
+//#line "weapon.c" 9951
+extern int SpawnMeteorExp(SHORT Weapon);
+//#line "weapon.c" 9995
+extern int DoFireball(SHORT Weapon);
+//#line "weapon.c" 10062
+extern int DoFindGround(SHORT SpriteNum);
+//#line "weapon.c" 10122
+extern int DoFindGroundPoint(SHORT SpriteNum);
+//#line "weapon.c" 10182
+extern int DoNapalm(SHORT Weapon);
+//#line "weapon.c" 10285
+extern int DoMeteor(SHORT Weapon);
+//#line "weapon.c" 10291
+extern int DoSerpMeteor(SHORT Weapon);
+//#line "weapon.c" 10351
+extern int DoMirvMissile(SHORT Weapon);
+//#line "weapon.c" 10386
+extern int DoMirv(SHORT Weapon);
+//#line "weapon.c" 10492
+extern BOOL MissileSetPos(short Weapon,ANIMATORp DoWeapon,long dist);
+//#line "weapon.c" 10538
+extern int DoRing(SHORT Weapon);
+//#line "weapon.c" 10615
+extern void InitSpellRing(PLAYERp pp);
+//#line "weapon.c" 10681
+extern int DoSerpRing(SHORT Weapon);
+//#line "weapon.c" 10795
+extern int InitLavaFlame(short SpriteNum);
+//#line "weapon.c" 10801
+extern int InitLavaThrow(short SpriteNum);
+//#line "weapon.c" 10859
+extern int InitVulcanBoulder(short SpriteNum);
+//#line "weapon.c" 10935
+extern int InitSerpRing(short SpriteNum);
+//#line "weapon.c" 11008
+extern int InitSerpRing2(short SpriteNum);
+//#line "weapon.c" 11086
+extern void InitSpellNapalm(PLAYERp pp);
+//#line "weapon.c" 11178
+extern int InitEnemyNapalm(short SpriteNum);
+//#line "weapon.c" 11260
+extern int InitSpellMirv(PLAYERp pp);
+//#line "weapon.c" 11307
+extern int InitEnemyMirv(short SpriteNum);
+//#line "weapon.c" 11355
+extern int InitSwordAttack(PLAYERp pp);
+//#line "weapon.c" 11473
+extern int WeaponAutoAim(SPRITEp sp,short Missile,short ang,BOOL test);
+//#line "weapon.c" 11544
+extern int AimHitscanToTarget(SPRITEp sp,long *z,short *ang,long z_ratio);
+//#line "weapon.c" 11602
+extern int WeaponAutoAimHitscan(SPRITEp sp,long *z,short *ang,BOOL test);
+//#line "weapon.c" 11657
+extern void WeaponHitscanShootFeet(SPRITEp sp,SPRITEp hp,long *zvect);
+//#line "weapon.c" 11695
+extern int InitStar(PLAYERp pp);
+//#line "weapon.c" 11935
+// CTW MODIFICATION
+//extern int InitHeartAttack(PLAYERp pp);
+extern void InitHeartAttack(PLAYERp pp);
+// CTW MODIFICATION END
+//#line "weapon.c" 12031
+extern int InitShotgun(PLAYERp pp);
+//#line "weapon.c" 12151
+extern int InitLaser(PLAYERp pp);
+//#line "weapon.c" 12252
+extern int InitLaserSight(PLAYERp pp);
+//#line "weapon.c" 12421
+extern int InitRail(PLAYERp pp);
+//#line "weapon.c" 12502
+extern int InitRocket(PLAYERp pp);
+//#line "weapon.c" 12610
+extern int InitNuke(PLAYERp pp);
+//#line "weapon.c" 12703
+extern int InitMicro(PLAYERp pp);
+//#line "weapon.c" 12836
+extern int InitRipperSlash(short SpriteNum);
+//#line "weapon.c" 12871
+extern int InitSerpSlash(short SpriteNum);
+//#line "weapon.c" 12905
+extern BOOL WallSpriteInsideSprite(SPRITEp wsp,SPRITEp sp);
+//#line "weapon.c" 12943
+extern int DoBladeDamage(short SpriteNum);
+//#line "weapon.c" 12986
+extern int InitCoolgBash(short SpriteNum);
+//#line "weapon.c" 13023
+extern int InitSkelSlash(short SpriteNum);
+//#line "weapon.c" 13056
+extern int InitGoroChop(short SpriteNum);
+//#line "weapon.c" 13089
+extern int InitHornetSting(short SpriteNum);
+//#line "weapon.c" 13102
+extern int InitSerpSpell(short SpriteNum);
+//#line "weapon.c" 13181
+extern int InitEnemyRocket(short SpriteNum);
+//#line "weapon.c" 13236
+extern int InitEnemyStar(short SpriteNum);
+//#line "weapon.c" 13322
+extern int InitSkelSpell(short SpriteNum);
+//#line "weapon.c" 13371
+extern int InitCoolgFire(short SpriteNum);
+//#line "weapon.c" 13428
+extern int DoCoolgDrip(short SpriteNum);
+//#line "weapon.c" 13445
+extern int InitCoolgDrip(short SpriteNum);
+//#line "weapon.c" 13478
+extern int InitEelFire(short SpriteNum);
+//#line "weapon.c" 13503
+extern int InitFireballTrap(short SpriteNum);
+//#line "weapon.c" 13540
+extern int InitBoltTrap(short SpriteNum);
+//#line "weapon.c" 13579
+extern int InitSpearTrap(short SpriteNum);
+//#line "weapon.c" 13619
+extern int DoSuicide(short SpriteNum);
+//#line "weapon.c" 13626
+extern int DoDefaultStat(short SpriteNum);
+//#line "weapon.c" 13633
+extern int InitUziBullet(PLAYERp pp);
+//#line "weapon.c" 13684
+extern int InitTracerUzi(PLAYERp pp);
+//#line "weapon.c" 13765
+extern int InitTracerTurret(short SpriteNum,short Operator,long horiz);
+//#line "weapon.c" 13824
+extern int InitTracerAutoTurret(short SpriteNum,short Operator,long xchange,long ychange,long zchange);
+//#line "weapon.c" 13876
+extern int BulletHitSprite(SPRITEp sp,short hitsprite,short hitsect,short hitwall,long hitx,long hity,long hitz,short ID);
+//#line "weapon.c" 13933
+extern int SpawnWallHole(short hitsect,short hitwall,long hitx,long hity,long hitz);
+//#line "weapon.c" 13969
+extern BOOL HitscanSpriteAdjust(short SpriteNum,short hitwall);
+//#line "weapon.c" 14011
+extern int InitUzi(PLAYERp pp);
+//#line "weapon.c" 14171
+extern int InitTankShell(short SpriteNum,PLAYERp pp);
+//#line "weapon.c" 14221
+extern int InitTurretRocket(short SpriteNum,PLAYERp pp);
+//#line "weapon.c" 14267
+extern int InitTurretFireball(short SpriteNum,PLAYERp pp);
+//#line "weapon.c" 14313
+extern int InitTurretRail(short SpriteNum,PLAYERp pp);
+//#line "weapon.c" 14367
+extern int InitTurretLaser(short SpriteNum,PLAYERp pp);
+//#line "weapon.c" 14420
+extern int InitSobjMachineGun(short SpriteNum,PLAYERp pp);
+//#line "weapon.c" 14532
+extern int InitSobjGun(PLAYERp pp);
+//#line "weapon.c" 14620
+extern int SpawnBoatSparks(PLAYERp pp,short hitsect,short hitwall,long hitx,long hity,long hitz,short hitang);
+//#line "weapon.c" 14665
+extern int SpawnSwordSparks(PLAYERp pp,short hitsect,short hitwall,long hitx,long hity,long hitz,short hitang);
+//#line "weapon.c" 14705
+extern int SpawnTurretSparks(SPRITEp sp,short hitsect,short hitwall,long hitx,long hity,long hitz,short hitang);
+//#line "weapon.c" 14746
+extern int SpawnShotgunSparks(PLAYERp pp,short hitsect,short hitwall,long hitx,long hity,long hitz,short hitang);
+//#line "weapon.c" 14788
+extern int InitTurretMgun(SECTOR_OBJECTp sop);
+//#line "weapon.c" 14944
+extern int InitEnemyUzi(short SpriteNum);
+//#line "weapon.c" 15022
+extern int InitGrenade(PLAYERp pp);
+//#line "weapon.c" 15110
+extern int InitSpriteGrenade(short SpriteNum);
+//#line "weapon.c" 15163
+extern int InitMine(PLAYERp pp);
+extern int InitEnemyMine(short SpriteNum);
+//#line "weapon.c" 15223
+extern int HelpMissileLateral(SHORT Weapon,long dist);
+//#line "weapon.c" 15261
+extern int InitFireball(PLAYERp pp);
+//#line "weapon.c" 15338
+extern int InitEnemyFireball(short SpriteNum);
+//#line "weapon.c" 15432
+extern BOOL SpriteWarpToUnderwater(SPRITEp sp);
+//#line "weapon.c" 15510
+extern BOOL SpriteWarpToSurface(SPRITEp sp);
+//#line "weapon.c" 15590
+extern int SpawnSplash(short SpriteNum);
+//#line "weapon.c" 15628
+extern int SpawnSplashXY(long hitx,long hity,long hitz,short);
+//#line "weapon.c" 15670
+extern int SpawnUnderSplash(short SpriteNum);
+//#line "weapon.c" 15704
+extern BOOL MissileHitDiveArea(short SpriteNum);
+//#line "weapon.c" 15768
+extern int SpawnBubble(short SpriteNum);
+//#line "weapon.c" 15800
+extern int DoVehicleSmoke(short SpriteNum);
+//#line "weapon.c" 15815
+extern int SpawnVehicleSmoke(short SpriteNum);
+//#line "weapon.c" 15853
+extern int DoBubble(short SpriteNum);
+//#line "weapon.c" 15919
+extern void QueueReset(void );
+//#line "weapon.c" 15945
+extern BOOL TestDontStick(short SpriteNum,short hitsect,short hitwall,long hitz);
+//#line "weapon.c" 15970
+extern BOOL TestDontStickSector(short hitsect);
+//#line "weapon.c" 15978
+extern int QueueStar(short SpriteNum);
+//#line "weapon.c" 16020
+extern int QueueHole(short ang,short hitsect,short hitwall,long hitx,long hity,long hitz);
+//#line "weapon.c" 16083
+extern int QueueFloorBlood(short hitsprite);
+//#line "weapon.c" 16147
+extern int QueueFootPrint(short hitsprite);
+//#line "weapon.c" 16270
+extern int QueueWallBlood(short hitsprite,short ang);
+//#line "weapon.c" 16381
+extern int DoFloorBlood(short SpriteNum);
+//#line "weapon.c" 16439
+extern int DoWallBlood(short SpriteNum);
+//#line "weapon.c" 16455
+extern int DoShellShrap(short SpriteNum);
+//#line "weapon.c" 16482
+extern int SpawnShell(short SpriteNum,short ShellNum);
+//#line "weapon.c" 16494
+extern int DoShrapVelocity(SHORT SpriteNum);
+//#line "weapon.c" 16655
+extern int ShrapKillSprite(short SpriteNum);
+//#line "weapon.c" 16704
+extern BOOL CheckBreakToughness(BREAK_INFOp break_info,short ID);
+//#line "weapon.c" 16737
+extern int DoItemFly(SHORT SpriteNum);

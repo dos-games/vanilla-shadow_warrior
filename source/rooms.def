@@ -1,0 +1,66 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "rooms.c" 38
+extern void COVERupdatesector(LONG x,LONG y,SHORTp newsector);
+//#line "rooms.c" 45
+extern BOOL FAF_Sector(short sectnum);
+//#line "rooms.c" 65
+extern void SetWallWarpHitscan(short sectnum);
+//#line "rooms.c" 89
+extern void ResetWallWarpHitscan(short sectnum);
+//#line "rooms.c" 106
+extern void FAFhitscan(LONG x,LONG y,LONG z,SHORT sectnum,LONG xvect,LONG yvect,LONG zvect,SHORTp hitsect,SHORTp hitwall,SHORTp hitsprite,LONGp hitx,LONGp hity,LONGp hitz,LONG clipmask);
+//#line "rooms.c" 231
+extern BOOL FAFcansee(LONG xs,LONG ys,LONG zs,SHORT sects,LONG xe,LONG ye,LONG ze,SHORT secte);
+//#line "rooms.c" 311
+extern long GetZadjustment(short sectnum,short hitag);
+//#line "rooms.c" 332
+extern BOOL SectorZadjust(long ceilhit,LONGp hiz,short florhit,LONGp loz);
+//#line "rooms.c" 442
+extern void WaterAdjust(short florhit,LONGp loz);
+//#line "rooms.c" 459
+extern void FAFgetzrange(LONG x,LONG y,LONG z,SHORT sectnum,LONGp hiz,LONGp ceilhit,LONGp loz,LONGp florhit,LONG clipdist,LONG clipmask);
+//#line "rooms.c" 531
+extern void FAFgetzrangepoint(LONG x,LONG y,LONG z,SHORT sectnum,LONGp hiz,LONGp ceilhit,LONGp loz,LONGp florhit);
+//#line "rooms.c" 594
+extern int setsprite(short spritenum,long newx,long newy,long newz);
+//#line "rooms.c" 633
+extern BOOL PicInView(short tile_num,BOOL reset);
+//#line "rooms.c" 647
+extern void SetupMirrorTiles(void );
+//#line "rooms.c" 685
+extern void updatesectorz(long x,long y,long z,short *sectnum);
+//#line "rooms.c" 744
+extern void GetUpperLowerSector(short match,long x,long y,short *upper,short *lower);
+//#line "rooms.c" 852
+extern BOOL FindCeilingView(short match,LONGp x,LONGp y,LONG z,SHORTp sectnum);
+//#line "rooms.c" 940
+extern BOOL FindFloorView(short match,LONGp x,LONGp y,LONG z,SHORTp sectnum);
+//#line "rooms.c" 1030
+extern short ViewSectorInScene(short cursectnum,short type,short level);
+//#line "rooms.c" 1068
+extern void DrawOverlapRoom(long tx,long ty,long tz,short tang,long thoriz,short tsectnum);

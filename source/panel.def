@@ -1,0 +1,402 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "panel.c" 71
+extern int NullAnimator(short SpriteNum);
+//#line "panel.c" 76
+extern void pNullAnimator(PANEL_SPRITEp psp);
+//#line "panel.c" 82
+extern PANEL_SPRITEp pFindMatchingSprite(PLAYERp pp,long x,long y,short pri);
+//#line "panel.c" 103
+extern PANEL_SPRITEp pFindMatchingSpriteID(PLAYERp pp,short id,long x,long y,short pri);
+//#line "panel.c" 124
+extern BOOL pKillScreenSpiteIDs(PLAYERp pp,short id);
+//#line "panel.c" 147
+extern PANEL_SPRITEp pSpawnFullViewSprite(PLAYERp pp,short pic,short pri,long x,long y);
+//#line "panel.c" 172
+extern PANEL_SPRITEp pSpawnFullScreenSprite(PLAYERp pp,short pic,short pri,long x,long y);
+//#line "panel.c" 195
+extern void DrawCompass(PLAYERp pp);
+//#line "panel.c" 276
+extern void pSetSuicide(PANEL_SPRITEp psp);
+//#line "panel.c" 281
+extern void pToggleCrosshair(PLAYERp pp);
+//#line "panel.c" 299
+extern void DoPlayerChooseYell(PLAYERp pp);
+//#line "panel.c" 310
+extern void ArmorCalc(int damage_amt,int *armor_damage,int *player_damage);
+//#line "panel.c" 331
+extern void PlayerUpdateHealth(PLAYERp pp,short value);
+//#line "panel.c" 465
+extern void PlayerUpdateAmmo(PLAYERp pp,short UpdateWeaponNum,short value);
+//#line "panel.c" 531
+extern void PlayerUpdateWeaponSummary(PLAYERp pp,short UpdateWeaponNum);
+//#line "panel.c" 591
+extern void PlayerUpdateWeaponSummaryAll(PLAYERp pp);
+//#line "panel.c" 605
+extern void PlayerUpdateWeapon(PLAYERp pp,short WeaponNum);
+//#line "panel.c" 623
+extern void PlayerUpdateKills(PLAYERp pp,short value);
+//#line "panel.c" 646
+extern void PlayerUpdateArmor(PLAYERp pp,short value);
+//#line "panel.c" 685
+extern void PlayerUpdateKeys(PLAYERp pp);
+//#line "panel.c" 765
+extern void PlayerUpdatePanelInfo(PLAYERp pp);
+//#line "panel.c" 789
+extern int WeaponOperate(PLAYERp pp);
+//#line "panel.c" 939
+extern BOOL WeaponOK(PLAYERp pp);
+//#line "panel.c" 1020
+extern void SwordBlur(PANEL_SPRITEp psp);
+//#line "panel.c" 1042
+extern void SpawnSwordBlur(PANEL_SPRITEp psp);
+//#line "panel.c" 1142
+extern void SpecialUziRetractFunc(PANEL_SPRITEp psp);
+//#line "panel.c" 1153
+extern void RetractCurWpn(PLAYERp pp);
+//#line "panel.c" 1187
+extern void InitWeaponSword(PLAYERp pp);
+//#line "panel.c" 1244
+extern void pSwordPresent(PANEL_SPRITEp psp);
+//#line "panel.c" 1264
+extern void pSwordSlide(PANEL_SPRITEp psp);
+//#line "panel.c" 1282
+extern void pSwordSlideDown(PANEL_SPRITEp psp);
+//#line "panel.c" 1334
+extern void pSwordSlideR(PANEL_SPRITEp psp);
+//#line "panel.c" 1352
+extern void pSwordSlideDownR(PANEL_SPRITEp psp);
+//#line "panel.c" 1400
+extern void pSwordBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 1414
+extern void pSwordHide(PANEL_SPRITEp psp);
+//#line "panel.c" 1429
+extern void pSwordRest(PANEL_SPRITEp psp);
+//#line "panel.c" 1486
+extern void pSwordAction(PANEL_SPRITEp psp);
+//#line "panel.c" 1494
+extern void pSwordAttack(PANEL_SPRITEp psp);
+//#line "panel.c" 1502
+extern void pSwordRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 1595
+extern void pStarRestTest(PANEL_SPRITEp psp);
+//#line "panel.c" 1617
+extern void InitWeaponStar(PLAYERp pp);
+//#line "panel.c" 1675
+extern void pStarPresent(PANEL_SPRITEp psp);
+//#line "panel.c" 1694
+extern void pStarBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 1708
+extern void pLStarBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 1722
+extern void pStarHide(PANEL_SPRITEp psp);
+//#line "panel.c" 1737
+extern void pStarRest(PANEL_SPRITEp psp);
+//#line "panel.c" 1770
+extern void pStarAction(PANEL_SPRITEp psp);
+//#line "panel.c" 1778
+extern void pStarThrow(PANEL_SPRITEp psp);
+//#line "panel.c" 1784
+extern void pStarRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 1940
+extern void pUziOverlays(PANEL_SPRITEp psp,short mode);
+//#line "panel.c" 1987
+extern void pUziEjectDown(PANEL_SPRITEp gun);
+//#line "panel.c" 1999
+extern void pUziEjectUp(PANEL_SPRITEp gun);
+//#line "panel.c" 2015
+extern void pSpawnUziClip(PANEL_SPRITEp gun);
+//#line "panel.c" 2044
+extern void pSpawnUziReload(PANEL_SPRITEp oclip);
+//#line "panel.c" 2063
+extern void pUziReload(PANEL_SPRITEp nclip);
+//#line "panel.c" 2121
+extern void pUziReloadRetract(PANEL_SPRITEp nclip);
+//#line "panel.c" 2151
+extern void pUziDoneReload(PANEL_SPRITEp psp);
+//#line "panel.c" 2187
+extern void pUziClip(PANEL_SPRITEp oclip);
+//#line "panel.c" 2233
+extern void InitWeaponUzi(PLAYERp pp);
+//#line "panel.c" 2300
+extern PANEL_SPRITEp InitWeaponUzi2(PANEL_SPRITEp uzi_orig);
+//#line "panel.c" 2330
+extern PANEL_SPRITEp InitWeaponUziSecondaryReload(PANEL_SPRITEp uzi_orig);
+//#line "panel.c" 2356
+extern void pUziPresent(PANEL_SPRITEp psp);
+//#line "panel.c" 2376
+extern void pUziPresentReload(PANEL_SPRITEp psp);
+//#line "panel.c" 2393
+extern void pUziBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 2407
+extern void pUziStartReload(PANEL_SPRITEp psp);
+//#line "panel.c" 2424
+extern void pUziHide(PANEL_SPRITEp psp);
+//#line "panel.c" 2447
+extern void pUziRest(PANEL_SPRITEp psp);
+//#line "panel.c" 2490
+extern void pUziAction(PANEL_SPRITEp psp);
+//#line "panel.c" 2527
+extern void pUziFire(PANEL_SPRITEp psp);
+//#line "panel.c" 2568
+extern void pUziRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 2685
+extern void SpawnUziShell(PANEL_SPRITEp psp);
+//#line "panel.c" 2711
+extern void pUziShell(PANEL_SPRITEp psp);
+//#line "panel.c" 2758
+extern void SpawnShotgunShell(PANEL_SPRITEp psp);
+//#line "panel.c" 2797
+extern void pShotgunShell(PANEL_SPRITEp psp);
+//#line "panel.c" 2905
+extern void InitWeaponShotgun(PLAYERp pp);
+//#line "panel.c" 2953
+extern void pShotgunReloadDown(PANEL_SPRITEp psp);
+//#line "panel.c" 2971
+extern void pShotgunReloadUp(PANEL_SPRITEp psp);
+//#line "panel.c" 2991
+extern void pShotgunPresent(PANEL_SPRITEp psp);
+//#line "panel.c" 3007
+extern void pShotgunBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 3021
+extern void pShotgunHide(PANEL_SPRITEp psp);
+//#line "panel.c" 3037
+extern BOOL pShotgunReloadTest(PANEL_SPRITEp psp);
+//#line "panel.c" 3054
+extern void pShotgunRest(PANEL_SPRITEp psp);
+//#line "panel.c" 3083
+extern void pShotgunRestTest(PANEL_SPRITEp psp);
+//#line "panel.c" 3114
+extern void pShotgunAction(PANEL_SPRITEp psp);
+//#line "panel.c" 3122
+extern void pShotgunFire(PANEL_SPRITEp psp);
+//#line "panel.c" 3131
+extern void pShotgunRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 3240
+extern void InitWeaponRail(PLAYERp pp);
+//#line "panel.c" 3288
+extern void pRailPresent(PANEL_SPRITEp psp);
+//#line "panel.c" 3304
+extern void pRailBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 3318
+extern void pRailHide(PANEL_SPRITEp psp);
+//#line "panel.c" 3333
+extern void pRailRest(PANEL_SPRITEp psp);
+//#line "panel.c" 3364
+extern void pRailRestTest(PANEL_SPRITEp psp);
+//#line "panel.c" 3392
+extern void pRailAction(PANEL_SPRITEp psp);
+//#line "panel.c" 3400
+extern void pRailFire(PANEL_SPRITEp psp);
+//#line "panel.c" 3408
+extern void pRailRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 3568
+extern void pHotHeadOverlays(PANEL_SPRITEp psp,short mode);
+//#line "panel.c" 3593
+extern void InitWeaponHothead(PLAYERp pp);
+//#line "panel.c" 3640
+extern void pHotheadRestTest(PANEL_SPRITEp psp);
+//#line "panel.c" 3663
+extern void pHotheadPresent(PANEL_SPRITEp psp);
+//#line "panel.c" 3680
+extern void pHotheadBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 3694
+extern void pHotheadHide(PANEL_SPRITEp psp);
+//#line "panel.c" 3711
+extern void pHotheadRest(PANEL_SPRITEp psp);
+//#line "panel.c" 3748
+extern void pHotheadAction(PANEL_SPRITEp psp);
+//#line "panel.c" 3753
+extern void pHotheadAttack(PANEL_SPRITEp psp);
+//#line "panel.c" 3770
+extern void pHotheadRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 3814
+extern void SpawnOnFire(PLAYERp pp);
+//#line "panel.c" 3828
+extern void pOnFire(PANEL_SPRITEp psp);
+//#line "panel.c" 3971
+extern void pMicroSetRecoil(PANEL_SPRITEp psp);
+//#line "panel.c" 3978
+extern void InitWeaponMicro(PLAYERp pp);
+//#line "panel.c" 4032
+extern void pMicroRecoilDown(PANEL_SPRITEp psp);
+//#line "panel.c" 4057
+extern void pMicroRecoilUp(PANEL_SPRITEp psp);
+//#line "panel.c" 4080
+extern void pMicroPresent(PANEL_SPRITEp psp);
+//#line "panel.c" 4101
+extern void pMicroBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 4115
+extern void pMicroHide(PANEL_SPRITEp psp);
+//#line "panel.c" 4131
+extern BOOL pMicroOverlays(PANEL_SPRITEp psp);
+//#line "panel.c" 4213
+extern void pMicroRest(PANEL_SPRITEp psp);
+//#line "panel.c" 4268
+extern void pMicroAction(PANEL_SPRITEp psp);
+//#line "panel.c" 4276
+extern void pMicroFire(PANEL_SPRITEp psp);
+//#line "panel.c" 4304
+extern void pMicroRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 4319
+extern void pNukeAction(PANEL_SPRITEp psp);
+//#line "panel.c" 4328
+extern void pMicroStandBy(PANEL_SPRITEp psp);
+//#line "panel.c" 4336
+extern void pMicroCount(PANEL_SPRITEp psp);
+//#line "panel.c" 4343
+extern void pMicroReady(PANEL_SPRITEp psp);
+//#line "panel.c" 4411
+extern void InitWeaponHeart(PLAYERp pp);
+//#line "panel.c" 4454
+extern void pHeartPresent(PANEL_SPRITEp psp);
+//#line "panel.c" 4470
+extern void pHeartBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 4484
+extern void pHeartHide(PANEL_SPRITEp psp);
+//#line "panel.c" 4499
+extern void pHeartRest(PANEL_SPRITEp psp);
+//#line "panel.c" 4540
+extern void pHeartAction(PANEL_SPRITEp psp);
+//#line "panel.c" 4556
+extern void pHeartActionBlood(PANEL_SPRITEp psp);
+//#line "panel.c" 4575
+extern void pHeartAttack(PANEL_SPRITEp psp);
+//#line "panel.c" 4583
+extern void pHeartRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 4639
+extern void SpawnHeartBlood(PANEL_SPRITEp psp);
+//#line "panel.c" 4677
+extern void SpawnSmallHeartBlood(PANEL_SPRITEp psp);
+//#line "panel.c" 4709
+extern void pHeartBlood(PANEL_SPRITEp psp);
+//#line "panel.c" 4733
+extern int DoBeginPanelJump(PANEL_SPRITEp psp);
+//#line "panel.c" 4749
+extern int DoPanelJump(PANEL_SPRITEp psp);
+//#line "panel.c" 4775
+extern int DoBeginPanelFall(PANEL_SPRITEp psp);
+//#line "panel.c" 4789
+extern int DoPanelFall(PANEL_SPRITEp psp);
+//#line "panel.c" 4864
+extern void pGrenadeSetRecoil(PANEL_SPRITEp psp);
+//#line "panel.c" 4871
+extern void pGrenadePresentSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 4881
+extern void InitWeaponGrenade(PLAYERp pp);
+//#line "panel.c" 4927
+extern void pGrenadeRecoilDown(PANEL_SPRITEp psp);
+//#line "panel.c" 4952
+extern void pGrenadeRecoilUp(PANEL_SPRITEp psp);
+//#line "panel.c" 4975
+extern void pGrenadePresent(PANEL_SPRITEp psp);
+//#line "panel.c" 5003
+extern void pGrenadeBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 5017
+extern void pGrenadeHide(PANEL_SPRITEp psp);
+//#line "panel.c" 5035
+extern void pGrenadeRest(PANEL_SPRITEp psp);
+//#line "panel.c" 5062
+extern void pGrenadeAction(PANEL_SPRITEp psp);
+//#line "panel.c" 5070
+extern void pGrenadeFire(PANEL_SPRITEp psp);
+//#line "panel.c" 5078
+extern void pGrenadeRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 5146
+extern void InitWeaponMine(PLAYERp pp);
+//#line "panel.c" 5189
+extern void pMineUpSound(PANEL_SPRITEp psp);
+//#line "panel.c" 5197
+extern void pMineLower(PANEL_SPRITEp psp);
+//#line "panel.c" 5211
+extern void pMineRaise(PANEL_SPRITEp psp);
+//#line "panel.c" 5223
+extern void pMinePresent(PANEL_SPRITEp psp);
+//#line "panel.c" 5240
+extern void pMineBobSetup(PANEL_SPRITEp psp);
+//#line "panel.c" 5254
+extern void pMineHide(PANEL_SPRITEp psp);
+//#line "panel.c" 5270
+extern void pMineRest(PANEL_SPRITEp psp);
+//#line "panel.c" 5297
+extern void pMineAction(PANEL_SPRITEp psp);
+//#line "panel.c" 5305
+extern void pMineThrow(PANEL_SPRITEp psp);
+//#line "panel.c" 5313
+extern void pMineRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 5415
+extern void InitChops(PLAYERp pp);
+//#line "panel.c" 5442
+extern void pChopsClick(PANEL_SPRITEp psp);
+//#line "panel.c" 5462
+extern void pChopsUp(PANEL_SPRITEp psp);
+//#line "panel.c" 5474
+extern void pChopsDown(PANEL_SPRITEp psp);
+//#line "panel.c" 5486
+extern void pChopsDownSlow(PANEL_SPRITEp psp);
+//#line "panel.c" 5498
+extern void pChopsShake(PANEL_SPRITEp psp);
+//#line "panel.c" 5510
+extern void pChopsWait(PANEL_SPRITEp psp);
+//#line "panel.c" 5527
+extern void ChopsSetRetract(PLAYERp pp);
+//#line "panel.c" 5533
+extern void pChopsRetract(PANEL_SPRITEp psp);
+//#line "panel.c" 5558
+extern void pWeaponForceRest(PLAYERp pp);
+//#line "panel.c" 5564
+extern BOOL pWeaponUnHideKeys(PANEL_SPRITEp psp,PANEL_STATEp state);
+//#line "panel.c" 5612
+extern BOOL pWeaponHideKeys(PANEL_SPRITEp psp,PANEL_STATEp state);
+//#line "panel.c" 5650
+extern void InsertPanelSprite(PLAYERp pp,PANEL_SPRITEp psp);
+//#line "panel.c" 5693
+extern PANEL_SPRITEp pSpawnSprite(PLAYERp pp,PANEL_STATEp state,BYTE priority,long x,long y);
+//#line "panel.c" 5732
+extern void pSuicide(PANEL_SPRITEp psp);
+//#line "panel.c" 5738
+extern void pKillSprite(PANEL_SPRITEp psp);
+//#line "panel.c" 5749
+extern void pClearSpriteList(PLAYERp pp);
+//#line "panel.c" 5760
+extern void pWeaponBob(PANEL_SPRITEp psp,short condition);
+//#line "panel.c" 5825
+extern void pDisplaySprites(PLAYERp pp);
+//#line "panel.c" 6000
+extern void pSpriteControl(PLAYERp pp);
+//#line "panel.c" 6026
+extern void pSetState(PANEL_SPRITEp psp,PANEL_STATEp panel_state);
+//#line "panel.c" 6035
+extern void pNextState(PANEL_SPRITEp psp);
+//#line "panel.c" 6048
+extern void pStatePlusOne(PANEL_SPRITEp psp);
+//#line "panel.c" 6062
+extern void pStateControl(PANEL_SPRITEp psp);
+//#line "panel.c" 6109
+extern void UpdatePanel(void );
+//#line "panel.c" 6157
+extern void rotatespritetile(long thex,long they,short tilenum,signed char shade,long cx1,long cy1,long cx2,long cy2,char dapalnum);

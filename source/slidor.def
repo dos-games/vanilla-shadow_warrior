@@ -1,0 +1,50 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "slidor.c" 13
+extern void ReverseSlidor(short SpriteNum);
+//#line "slidor.c" 45
+extern BOOL SlidorSwitch(short match,short setting);
+//#line "slidor.c" 65
+extern void SetSlidorActive(short SpriteNum);
+//#line "slidor.c" 80
+extern void SetSlidorInactive(short SpriteNum);
+//#line "slidor.c" 95
+extern short DoSlidorOperate(PLAYERp pp,short sectnum);
+//#line "slidor.c" 119
+extern short DoSlidorMatch(PLAYERp pp,short match,BOOL manual);
+//#line "slidor.c" 195
+extern BOOL TestSlidorMatchActive(short match);
+//#line "slidor.c" 223
+extern void DoSlidorInterp(short SpriteNum,INTERP_FUNCp interp_func);
+//#line "slidor.c" 341
+extern int DoSlidorMoveWalls(short SpriteNum,long amt);
+//#line "slidor.c" 451
+extern int DoSlidorInstantClose(short SpriteNum);
+//#line "slidor.c" 491
+extern int DoSlidorMove(short SpriteNum);
+//#line "slidor.c" 587
+extern int DoSlidor(short SpriteNum);

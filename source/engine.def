@@ -1,0 +1,303 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "engine.c" 305
+extern void drawrooms(long daposx,long daposy,long daposz,short daang,long dahoriz,short dacursectnum);
+//#line "engine.c" 391
+extern void scansector(short sectnum);
+//#line "engine.c" 526
+extern int wallfront(long l1,long l2);
+//#line "engine.c" 560
+extern int spritewallfront(spritetype *s,long w);
+//#line "engine.c" 570
+extern int bunchfront(long b1,long b2);
+//#line "engine.c" 588
+extern void drawalls(short bunch);
+//#line "engine.c" 1256
+extern void ceilscan(long x1,long x2,short sectnum);
+//#line "engine.c" 1366
+extern void florscan(long x1,long x2,short sectnum);
+//#line "engine.c" 1474
+extern void wallscan(long x1,long x2,short *uwal,short *dwal,long *swal,long *lwal);
+//#line "engine.c" 1672
+extern void maskwallscan(long x1,long x2,short *uwal,short *dwal,long *swal,long *lwal);
+//#line "engine.c" 1881
+extern void transmaskwallscan(long x1,long x2);
+//#line "engine.c" 1931
+extern int loadboard(char *filename,long *daposx,long *daposy,long *daposz,short *daang,short *dacursectnum);
+//#line "engine.c" 1976
+extern int saveboard(char *filename,long *daposx,long *daposy,long *daposz,short *daang,short *dacursectnum);
+//#line "engine.c" 2023
+extern void loadtables(void);
+//#line "engine.c" 2049
+extern void loadpalette(void);
+//#line "engine.c" 2113
+extern int setgamemode(char,long,long);
+//#line "engine.c" 2217
+extern void hline(long xr,long yp);
+//#line "engine.c" 2256
+extern void transmaskvline(long x);
+//#line "engine.c" 2295
+extern void transmaskvline2(long x);
+//#line "engine.c" 2391
+extern void initengine();
+//#line "engine.c" 2500
+extern void uninitengine(void);
+//#line "engine.c" 2517
+extern void nextpage(void);
+//#line "engine.c" 2639
+extern void loadtile(short tilenume);
+//#line "engine.c" 2681
+extern int allocatepermanenttile(short tilenume,long xsiz,long ysiz);
+//#line "engine.c" 2705
+extern int loadpics(char *filename);
+//#line "engine.c" 2783
+extern void showengineinfo(void);
+//#line "engine.c" 2794
+extern void resettiming(void);
+//#line "engine.c" 2801
+extern int clipinsidebox(long x,long y,short wallnum,long walldist);
+//#line "engine.c" 2827
+extern int clipinsideboxline(long x,long y,long x1,long y1,long x2,long y2,long walldist);
+//#line "engine.c" 2853
+extern int readpixel16(long p);
+//#line "engine.c" 2874
+extern int screencapture(char *filename,char inverseit);
+//#line "engine.c" 3018
+// CTW MODIFICATION
+//extern int inside(long x,long y,short sectnum);
+extern short inside(long x,long y,short sectnum);
+// CTW MODIFICATION END
+//#line "engine.c" 3045
+extern int getangle(long xvect,long yvect);
+//#line "engine.c" 3057
+// CTW MODIFICATION
+//extern int ksqrt(long num);
+extern short ksqrt(long num);
+// CTW MODIFICATION END
+//#line "engine.c" 3062
+extern int krecip(long num);
+//#line "engine.c" 3067
+extern void initksqrt(void);
+//#line "engine.c" 3085
+extern void copytilepiece(long tilenume1,long sx1,long sy1,long xsiz,long ysiz,long tilenume2,long sx2,long sy2);
+//#line "engine.c" 3122
+extern void printext(long x,long y,char buffer[],short tilenum,char invisiblecol);
+//#line "engine.c" 3214
+extern void drawmasks(void);
+//#line "engine.c" 3357
+extern void drawmaskwall(short damaskwallcnt);
+//#line "engine.c" 3473
+extern void drawsprite(long snum);
+//#line "engine.c" 4245
+extern void ceilspritescan(long lx,long rx);
+//#line "engine.c" 4293
+extern void ceilspritehline(long x2,long y);
+//#line "engine.c" 4374
+// CTW MODIFICATION
+//extern void overwritesprite(long thex,long they,short tilenum,signed char shade,char orientation,char dapalnum);
+extern void overwritesprite(long thex,long they,short tilenum,char shade,char orientation,char dapalnum);
+// CTW MODIFICATION END
+//#line "engine.c" 4488
+extern void permanentwritesprite(long thex,long they,short tilenum,signed char shade,long cx1,long cy1,long cx2,long cy2,char dapalnum);
+//#line "engine.c" 4604
+extern int setsprite(short spritenum,long newx,long newy,long newz);
+//#line "engine.c" 4622
+extern int animateoffs(short tilenum,short fakevar);
+//#line "engine.c" 4649
+extern void initspritelists(void);
+//#line "engine.c" 4679
+extern int insertsprite(short sectnum,short statnum);
+//#line "engine.c" 4685
+extern int insertspritesect(short sectnum);
+//#line "engine.c" 4709
+extern int insertspritestat(short statnum);
+//#line "engine.c" 4733
+// CTW MODIFICATION
+//extern int deletesprite(short spritenum);
+extern void deletesprite(short spritenum);
+// CTW MODIFICATION END
+//#line "engine.c" 4739
+extern int deletespritesect(short deleteme);
+//#line "engine.c" 4759
+extern int deletespritestat(short deleteme);
+//#line "engine.c" 4779
+// CTW MODIFICATION
+//extern int changespritesect(short spritenum,short newsectnum);
+extern void changespritesect(short spritenum,short newsectnum);
+// CTW MODIFICATION END
+//#line "engine.c" 4789
+extern int changespritestat(short spritenum,short newstatnum);
+//#line "engine.c" 4799
+extern int nextsectorneighborz(short sectnum,long thez,short topbottom,short direction);
+//#line "engine.c" 4861
+extern int cansee(long xs,long ys,long zs,short sects,long xe,long ye,long ze,short secte);
+//#line "engine.c" 4894
+// CTW MODIFICATION
+//extern int neartag(long xs,long ys,long zs,short sectnum,short ange,short *neartagsector,short *neartagwall,short *neartagsprite,long *neartaghitdist,long neartagrange,char tagsearch);
+extern void neartag(long xs,long ys,long zs,short sectnum,short ange,short *neartagsector,short *neartagwall,short *neartagsprite,long *neartaghitdist,long neartagrange,char tagsearch);
+// CTW MODIFICATION END
+//#line "engine.c" 5275
+extern int lintersect(long x1,long y1,long z1,long x2,long y2,long z2,long x3,long y3,long x4,long y4,long *intx,long *inty,long *intz);
+//#line "engine.c" 5303
+extern int rintersect(long x1,long y1,long z1,long vx,long vy,long vz,long x3,long y3,long x4,long y4,long *intx,long *inty,long *intz);
+//#line "engine.c" 5330
+extern void dragpoint(short pointhighlight,long dax,long day);
+//#line "engine.c" 5372
+extern int lastwall(short point);
+//#line "engine.c" 5389
+extern void getcliplines(long x,long y,long z,long goalx,long goaly,short sectnum,long walldist,long ceildist,long flordist,char cliptype);
+//#line "engine.c" 5715
+extern void addclipline(long x1,long y1,long x2,long y2,short oval);
+//#line "engine.c" 5723
+extern void keepaway(long *x,long *y,short w);
+//#line "engine.c" 5740
+extern int raytrace(long x3,long y3,long *x4,long *y4);
+//#line "engine.c" 5773
+extern void updatesector(long x,long y,short *sectnum);
+//#line "engine.c" 5899
+extern void rotatepoint(long xpivot,long ypivot,long x,long y,short daang,long *x2,long *y2);
+//#line "engine.c" 5911
+extern int initmouse(void);
+//#line "engine.c" 5916
+extern void getmousevalues(short *mousx,short *mousy,short *bstatus);
+//#line "engine.c" 5923
+extern void printscreeninterrupt(void);
+//#line "engine.c" 5928
+extern void drawline256(long x1,long y1,long x2,long y2,char col);
+//#line "engine.c" 6036
+extern void drawline16(long x1,long y1,long x2,long y2,char col);
+//#line "engine.c" 6136
+// CTW MODIFICATION
+//extern void qsetmode640350(void);
+extern int qsetmode640350(void);
+// CTW MODIFICATION END
+//#line "engine.c" 6155
+// CTW MODIFICATION
+//extern void qsetmode640480(void);
+extern int qsetmode640480(void);
+// CTW MODIFICATION END
+//#line "engine.c" 6183
+extern void clear2dscreen(void);
+//#line "engine.c" 6198
+extern void draw2dgrid(long posxe,long posye,short ange,long zoome,short gride);
+//#line "engine.c" 6265
+// CTW MODIFICATION
+//extern void draw2dscreen(long posxe,long posye,short ange,long zoome,short gride);
+extern int draw2dscreen(long posxe,long posye,short ange,long zoome,short gride);
+// CTW MODIFICATION END
+//#line "engine.c" 6444
+extern void printext16(long xpos,long ypos,short col,short backcol,char name[],char fontsize);
+//#line "engine.c" 6536
+extern void printext256(long xpos,long ypos,short col,short backcol,char name[],char fontsize);
+//#line "engine.c" 6587
+extern void makeradarang(long xdime);
+//#line "engine.c" 6798
+extern void setview(long x1,long y1,long x2,long y2);
+//#line "engine.c" 6825
+extern void setaspect(long daaspect);
+//#line "engine.c" 6849
+extern void rotatesprite(long sx,long sy,long z,short a,short picnum,signed char dashade,char dapalnum,char dastat,long cx1,long cy1,long cx2,long cy2);
+//#line "engine.c" 6999
+extern int clippoly4(long cx1,long cy1,long cx2,long cy2);
+//#line "engine.c" 7052
+extern void makepalookup(long palnum,char *remapbuf,signed char r,signed char g,signed char b,char dastat);
+//#line "engine.c" 7107
+extern int setvesamode(short vesamode);
+//#line "engine.c" 7159
+extern void stereoinit(void);
+//#line "engine.c" 7172
+extern void setverts(long vertotal,long startverblank,long endverblank,long veretstart,long veretend,long verdispenab);
+//#line "engine.c" 7200
+extern void stereoblit(long dastereopage,char *stereobuf);
+//#line "engine.c" 7219
+extern void drawmapview(long dax,long day,long zoome,short ang);
+//#line "engine.c" 7525
+extern int clippoly(long npoints,long clipstat);
+//#line "engine.c" 7729
+extern void fillpolygon(long npoints);
+//#line "engine.c" 7895
+extern int setxmode(long daxdim,long daydim);
+//#line "engine.c" 8054
+extern void clearview(long dacol);
+//#line "engine.c" 8078
+extern void clearallviews(long dacol);
+//#line "engine.c" 8131
+extern void plotpixel(long x,long y,char col);
+//#line "engine.c" 8144
+extern char getpixel(long x,long y);
+//#line "engine.c" 8157
+extern void permanentwritespritetile(long thex,long they,short tilenum,signed char shade,long cx1,long cy1,long cx2,long cy2,char dapalnum);
+//#line "engine.c" 8179
+extern void setviewtotile(short tilenume,long xsiz,long ysiz);
+//#line "engine.c" 8200
+extern void setviewback(void);
+//#line "engine.c" 8229
+extern void squarerotatetile(short tilenume);
+//#line "engine.c" 8252
+extern void preparemirror(long dax,long day,long daz,short daang,long dahoriz,short dawall,short dasector,long *tposx,long *tposy,short *tang);
+//#line "engine.c" 8291
+extern void completemirror(void);
+//#line "engine.c" 8376
+extern int sectorofwall(short theline);
+//#line "engine.c" 8394
+extern int getceilzofslope(short sectnum,long dax,long day);
+//#line "engine.c" 8409
+extern int getflorzofslope(short sectnum,long dax,long day);
+//#line "engine.c" 8424
+// CTW MODIFICATION
+//extern void getzsofslope(short sectnum,long dax,long day,long *ceilz,long *florz);
+extern int getzsofslope(short sectnum,long dax,long day,long *ceilz,long *florz);
+// CTW MODIFICATION END
+//#line "engine.c" 8443
+extern void alignceilslope(short dasect,long x,long y,long z);
+//#line "engine.c" 8460
+extern void alignflorslope(short dasect,long x,long y,long z);
+//#line "engine.c" 8477
+extern int owallmost(short *mostbuf,long w,long z);
+//#line "engine.c" 8566
+extern int wallmost(short *mostbuf,long w,long sectnum,char dastat);
+//#line "engine.c" 8716
+extern void grouscan(long dax1,long dax2,short sectnum,char dastat);
+//#line "engine.c" 8857
+extern void drawslopevlin1(long x,long y1,long y2);
+
+// CTW MODIFICATION
+// Added return types for the following four functions
+int clipmove (long *x, long *y, long *z, short *sectnum, long xvect, long yvect,
+			 long walldist, long ceildist, long flordist, unsigned long clipmask);
+
+int pushmove (long *x, long *y, long *z, short *sectnum,
+			 long walldist, long ceildist, long flordist, unsigned long clipmask);
+
+int getzrange (long x, long y, long z, short sectnum,
+			  long *ceilz, long *ceilhit, long *florz, long *florhit,
+			  long walldist, unsigned long clipmask);
+
+int hitscan (long xs, long ys, long zs, short sectnum, long vx, long vy, long vz,
+			short *hitsect, short *hitwall, short *hitsprite,
+			long *hitx, long *hity, long *hitz, unsigned long clipmask);
+// CTW MODIFICATION END

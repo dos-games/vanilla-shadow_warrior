@@ -1,0 +1,94 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "draw.c" 49
+extern void ShadeSprite(SPRITEp tsp);
+//#line "draw.c" 65
+extern short GetRotation(short tSpriteNum,long viewx,long viewy);
+//#line "draw.c" 136
+extern int SetActorRotation(short tSpriteNum,long viewx,long viewy);
+//#line "draw.c" 195
+extern void ShadePlayerTest(SPRITEp tsp);
+//#line "draw.c" 235
+extern int DoShadowFindGroundPoint(SPRITEp sp);
+//#line "draw.c" 298
+extern void DoVoxelShadow(SPRITEp tspr);
+//#line "draw.c" 371
+extern void DoShadows(SPRITEp tsp,long viewz);
+//#line "draw.c" 466
+extern void DoMotionBlur(SPRITEp tsp);
+//#line "draw.c" 562
+extern void SetVoxelSprite(SPRITEp sp,short pic);
+//#line "draw.c" 568
+extern void WarpCopySprite(void );
+//#line "draw.c" 637
+extern void DoStarView(SPRITEp tsp,USERp tu,long viewz);
+//#line "draw.c" 661
+extern void analyzesprites(long viewx,long viewy,long viewz,BOOL mirror);
+//#line "draw.c" 889
+extern SPRITEp get_tsprite(short SpriteNum);
+//#line "draw.c" 903
+extern void post_analyzesprites(void );
+//#line "draw.c" 950
+extern void ResizeView(PLAYERp pp);
+//#line "draw.c" 1048
+extern void BackView(long *nx,long *ny,long *nz,short *vsect,short *nang,short horiz);
+//#line "draw.c" 1154
+extern void CircleCamera(long *nx,long *ny,long *nz,short *vsect,short *nang,short horiz);
+//#line "draw.c" 1261
+extern void PrintLocationInfo(PLAYERp pp);
+//#line "draw.c" 1303
+extern void SpriteSortList2D(long tx,long ty);
+//#line "draw.c" 1332
+extern void DrawCheckKeys(PLAYERp pp);
+//#line "draw.c" 1379
+extern void DrawMessageInput(PLAYERp pp);
+//#line "draw.c" 1407
+extern void DrawCrosshair(PLAYERp pp);
+//#line "draw.c" 1487
+extern void CameraView(PLAYERp pp,long *tx,long *ty,long *tz,short *tsectnum,short *tang,long *thoriz);
+//#line "draw.c" 1607
+extern void PreDraw(void );
+//#line "draw.c" 1620
+extern void PostDraw(void );
+//#line "draw.c" 1640
+extern int CopySprite(SPRITEp tsp,short newsector);
+//#line "draw.c" 1668
+extern int ConnectCopySprite(SPRITEp tsp);
+//#line "draw.c" 1705
+extern void PreDrawStackedWater(void );
+//#line "draw.c" 1774
+extern void FAF_DrawRooms(long x,long y,long z,short ang,long horiz,short sectnum);
+//#line "draw.c" 1834
+extern void drawscreen(PLAYERp pp);
+//#line "draw.c" 2129
+extern void ScreenTileLock(void );
+//#line "draw.c" 2134
+extern void ScreenTileUnLock(void );
+//#line "draw.c" 2140
+extern int ScreenLoadSaveSetup(PLAYERp pp);
+//#line "draw.c" 2160
+extern int ScreenSaveSetup(PLAYERp pp);

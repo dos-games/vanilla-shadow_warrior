@@ -1,0 +1,56 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "ninja.c" 1496
+extern int DoHariKariBlood(short SpriteNum);
+//#line "ninja.c" 1510
+extern int SetupNinja(short SpriteNum);
+//#line "ninja.c" 1575
+extern int DoNinjaHariKari(short SpriteNum);
+//#line "ninja.c" 1606
+extern int DoNinjaMove(short SpriteNum);
+//#line "ninja.c" 1646
+extern int NinjaJumpActionFunc(short SpriteNum);
+//#line "ninja.c" 1678
+extern int NullNinja(short SpriteNum);
+//#line "ninja.c" 1694
+extern int DoNinjaPain(short SpriteNum);
+//#line "ninja.c" 1714
+extern void InitAllPlayerSprites(void );
+//#line "ninja.c" 1727
+extern void PlayerLevelReset(PLAYERp pp);
+//#line "ninja.c" 1752
+extern void PlayerDeathReset(PLAYERp pp);
+//#line "ninja.c" 1785
+extern void PlayerPanelSetup(void );
+//#line "ninja.c" 1805
+extern void PlayerGameReset(PLAYERp pp);
+//#line "ninja.c" 1831
+extern void PlayerSpriteLoadLevel(short SpriteNum);
+//#line "ninja.c" 1842
+extern void InitPlayerSprite(PLAYERp pp);
+//#line "ninja.c" 1917
+extern void SpawnPlayerUnderSprite(PLAYERp pp);

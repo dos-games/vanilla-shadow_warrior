@@ -1,0 +1,110 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "track.c" 29
+extern short TrackTowardPlayer(SPRITEp sp,TRACKp t,TRACK_POINTp start_point);
+//#line "track.c" 57
+extern short TrackStartCloserThanEnd(short SpriteNum,TRACKp t,TRACK_POINTp start_point);
+//#line "track.c" 95
+extern short ActorFindTrack(short SpriteNum,CHAR player_dir,long track_type,short *track_point_num,short *track_dir);
+//#line "track.c" 250
+extern void NextTrackPoint(SECTOR_OBJECTp sop);
+//#line "track.c" 263
+extern void NextActorTrackPoint(short SpriteNum);
+//#line "track.c" 277
+extern void TrackAddPoint(TRACKp t,TRACK_POINTp tp,short SpriteNum);
+//#line "track.c" 298
+extern int TrackClonePoint(short SpriteNum);
+//#line "track.c" 319
+extern void QuickJumpSetup(short stat,short lotag,short type);
+//#line "track.c" 384
+extern void QuickScanSetup(short stat,short lotag,short type);
+//#line "track.c" 445
+extern void QuickExitSetup(short stat,short type);
+//#line "track.c" 500
+extern void QuickLadderSetup(short stat,short lotag,short type);
+//#line "track.c" 562
+extern void TrackSetup(void );
+//#line "track.c" 671
+extern SPRITEp FindBoundSprite(short tag);
+//#line "track.c" 688
+extern void SectorObjectSetupBounds(SECTOR_OBJECTp sop);
+//#line "track.c" 997
+extern void SetupSectorObject(short sectnum,short tag);
+//#line "track.c" 1370
+extern void PostSetupSectorObject(void );
+//#line "track.c" 1384
+extern SECTOR_OBJECTp PlayerOnObject(short sectnum_match);
+//#line "track.c" 1412
+extern void PlaceSectorObjectsOnTracks(void );
+//#line "track.c" 1490
+extern void PlaceActorsOnTracks(void );
+//#line "track.c" 1551
+extern void MovePlayer(PLAYERp pp,SECTOR_OBJECTp sop,long nx,long ny);
+//#line "track.c" 1628
+extern void MovePoints(SECTOR_OBJECTp sop,short delta_ang,long nx,long ny);
+//#line "track.c" 1880
+extern void RefreshPoints(SECTOR_OBJECTp sop,long nx,long ny,BOOL dynamic);
+//#line "track.c" 1967
+extern void KillSectorObjectSprites(SECTOR_OBJECTp sop);
+//#line "track.c" 1991
+extern void UpdateSectorObjectSprites(SECTOR_OBJECTp sop);
+//#line "track.c" 2007
+extern SECTOR_OBJECTp DetectSectorObject(SECTORp sectph);
+//#line "track.c" 2032
+extern SECTOR_OBJECTp DetectSectorObjectByWall(WALLp wph);
+//#line "track.c" 2074
+extern void CollapseSectorObject(SECTOR_OBJECTp sop,long nx,long ny);
+//#line "track.c" 2111
+extern void MoveZ(SECTOR_OBJECTp sop);
+//#line "track.c" 2167
+extern void CallbackSOsink(ANIMp ap,void *data);
+//#line "track.c" 2287
+extern void MoveSectorObjects(SECTOR_OBJECTp sop,short locktics);
+//#line "track.c" 2371
+extern void DoTrack(SECTOR_OBJECTp sop,short locktics,long *nx,long *ny);
+//#line "track.c" 2719
+extern void OperateSectorObject(SECTOR_OBJECTp sop,short newang,long newx,long newy);
+//#line "track.c" 2765
+extern void PlaceSectorObject(SECTOR_OBJECTp sop,short newang,long newx,long newy);
+//#line "track.c" 2770
+extern void VehicleSetSmoke(SECTOR_OBJECTp sop,ANIMATORp animator);
+//#line "track.c" 2809
+extern void KillSectorObject(SECTOR_OBJECTp sop);
+//#line "track.c" 2838
+extern void TornadoSpin(SECTOR_OBJECTp sop);
+//#line "track.c" 2871
+extern void DoTornadoObject(SECTOR_OBJECTp sop);
+//#line "track.c" 2906
+extern void DoAutoTurretObject(SECTOR_OBJECTp sop);
+//#line "track.c" 3004
+extern void DoActorHitTrackEndPoint(USERp u);
+//#line "track.c" 3066
+extern void ActorLeaveTrack(short SpriteNum);
+//#line "track.c" 3090
+extern BOOL ActorTrackDecide(TRACK_POINTp tpoint,short SpriteNum);
+//#line "track.c" 3642
+extern int ActorFollowTrack(short SpriteNum,short locktics);

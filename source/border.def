@@ -1,0 +1,52 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "border.c" 43
+extern PANEL_SPRITEp pSpawnFullScreenSpriteBox(PLAYERp pp,short id,short pic,short pri,long x,long y,short x1,short y1,short x2,short y2);
+//#line "border.c" 69
+extern void SetupAspectRatio(void );
+//#line "border.c" 82
+extern void SetConsoleDmost(void );
+//#line "border.c" 110
+extern void SetFragBar(PLAYERp pp);
+//#line "border.c" 146
+extern BOOL RectOverlap(short tx1,short ty1,short bx1,short by1,short tx2,short ty2,short bx2,short by2);
+//#line "border.c" 157
+extern void DrawBorderShade(PLAYERp pp,short shade_num,short wx1,short wy1,short wx2,short wy2);
+//#line "border.c" 205
+extern void BorderShade(PLAYERp pp,BOOL refresh);
+//#line "border.c" 269
+extern void DrawBorder(PLAYERp pp,short x,short y,short x2,short y2);
+//#line "border.c" 312
+extern void BorderSetView(PLAYERp pp,long *Xdim,long *Ydim,long *ScreenSize);
+//#line "border.c" 338
+extern void SetBorder(PLAYERp pp,int value);
+//#line "border.c" 455
+extern void BorderRefresh(PLAYERp pp);
+//#line "border.c" 505
+extern void PanelRefresh(PLAYERp pp);
+//#line "border.c" 522
+extern void BorderRefreshClip(PLAYERp pp,short x,short y,short x2,short y2);

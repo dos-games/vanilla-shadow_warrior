@@ -1,0 +1,66 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "jweapon.c" 188
+extern int DoPhosphorus(SHORT Weapon);
+//#line "jweapon.c" 415
+extern int DoChemBomb(SHORT Weapon);
+//#line "jweapon.c" 664
+extern int DoCaltrops(SHORT Weapon);
+//#line "jweapon.c" 849
+extern int SpawnRadiationCloud(short SpriteNum);
+//#line "jweapon.c" 903
+extern int DoRadiationCloud(short SpriteNum);
+//#line "jweapon.c" 927
+extern int PlayerInitChemBomb(PLAYERp pp);
+//#line "jweapon.c" 1011
+extern int InitSpriteChemBomb(SHORT SpriteNum);
+//#line "jweapon.c" 1066
+extern int InitChemBomb(short SpriteNum);
+//#line "jweapon.c" 1136
+extern int PlayerInitFlashBomb(PLAYERp pp);
+//#line "jweapon.c" 1196
+extern int InitFlashBomb(SHORT SpriteNum);
+//#line "jweapon.c" 1248
+extern int SpawnFlashBombOnActor(SHORT enemy);
+//#line "jweapon.c" 1342
+extern int PlayerInitCaltrops(PLAYERp pp);
+//#line "jweapon.c" 1423
+extern int InitCaltrops(SHORT SpriteNum);
+//#line "jweapon.c" 1476
+extern int InitPhosphorus(SHORT SpriteNum);
+//#line "jweapon.c" 1541
+extern void DoFlagScore(SHORT pal);
+//#line "jweapon.c" 1563
+extern int DoFlagRangeTest(short Weapon,short range);
+//#line "jweapon.c" 1611
+extern int DoCarryFlag(SHORT Weapon);
+//#line "jweapon.c" 1766
+extern int DoCarryFlagNoDet(SHORT Weapon);
+//#line "jweapon.c" 1833
+extern int SetCarryFlag(SHORT Weapon);
+//#line "jweapon.c" 1855
+extern int DoFlag(SHORT Weapon);

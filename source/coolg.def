@@ -1,0 +1,48 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "coolg.c" 467
+extern void CoolgCommon(short SpriteNum);
+//#line "coolg.c" 484
+extern int SetupCoolg(short SpriteNum);
+//#line "coolg.c" 517
+extern int NewCoolg(short SpriteNum);
+//#line "coolg.c" 547
+extern int DoCoolgBirth(short new);
+//#line "coolg.c" 572
+extern int NullCoolg(short SpriteNum);
+//#line "coolg.c" 588
+extern int DoCoolgMatchPlayerZ(short SpriteNum);
+//#line "coolg.c" 654
+extern int InitCoolgCircle(short SpriteNum);
+//#line "coolg.c" 685
+extern int DoCoolgCircle(short SpriteNum);
+//#line "coolg.c" 728
+extern int DoCoolgDeath(short SpriteNum);
+//#line "coolg.c" 768
+extern int DoCoolgMove(short SpriteNum);
+//#line "coolg.c" 792
+extern int DoCoolgPain(short SpriteNum);

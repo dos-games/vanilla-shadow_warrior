@@ -1,0 +1,156 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "game.c" 215
+extern BOOL ValidPtr(void *ptr);
+//#line "game.c" 271
+extern void PtrCheckSum(void *ptr,unsigned long *stored,unsigned long *actual);
+//#line "game.c" 287
+extern void *AllocMem(int size);
+//#line "game.c" 311
+extern void *ReAllocMem(void *ptr,int size);
+//#line "game.c" 342
+extern void *CallocMem(int size,int num);
+//#line "game.c" 366
+extern void FreeMem(void *ptr);
+//#line "game.c" 414
+extern int PointOnLine(long x,long y,long x1,long y1,long x2,long y2);
+//#line "game.c" 421
+extern int Distance(int x1,int y1,int x2,int y2);
+//#line "game.c" 440
+extern void MapSetAll2D(BYTE fill);
+//#line "game.c" 453
+extern void MapSetup(void );
+//#line "game.c" 467
+extern void setup2dscreen(void );
+//#line "game.c" 475
+extern void TerminateGame(void );
+//#line "game.c" 500
+extern void LoadLevel(char *filename);
+//#line "game.c" 535
+extern void LoadImages(TEXT filename);
+//#line "game.c" 562
+extern void LoadDemoRun(void );
+//#line "game.c" 596
+extern void DisplayDemoText(void );
+//#line "game.c" 609
+extern void Set_GameMode(void );
+//#line "game.c" 639
+extern void MakePal(void );
+//#line "game.c" 678
+extern void InitGame(void );
+//#line "game.c" 836
+extern void InitNewGame(void );
+//#line "game.c" 842
+extern void dprint(char *s);
+//#line "game.c" 851
+extern void FindLevelInfo(char *map_name,short *level);
+//#line "game.c" 876
+extern void InitLevelGlobals(void );
+//#line "game.c" 895
+extern void InitLevel(void );
+//#line "game.c" 1087
+extern void TerminateLevel(void );
+//#line "game.c" 1187
+extern void NewLevel(void );
+//#line "game.c" 1215
+extern void ResetKeys(void );
+//#line "game.c" 1226
+extern BOOL KeyPressed(void );
+//#line "game.c" 1240
+extern BYTEp KeyPressedRange(BYTEp kb,BYTEp ke);
+//#line "game.c" 1254
+extern void ResetKeyRange(BYTEp kb,BYTEp ke);
+//#line "game.c" 1266
+extern void LogoLevel(void );
+//#line "game.c" 1343
+extern void TitleLevel(void );
+//#line "game.c" 1422
+extern void DrawMenuLevelScreen(void );
+//#line "game.c" 1442
+extern void MenuLevel(void );
+//#line "game.c" 1525
+extern void SceneLevel(void );
+//#line "game.c" 1556
+extern void LoadingLevelScreen(char *level_name);
+//#line "game.c" 1580
+extern void StatScreen(PLAYERp pp);
+//#line "game.c" 1624
+extern void GameIntro(void );
+//#line "game.c" 1649
+extern void Control(void );
+//#line "game.c" 1666
+extern void InitMyConnectIndex(void );
+//#line "game.c" 1677
+extern void _Assert(char *expr,char *strFile,unsigned int uLine);
+//#line "game.c" 1688
+extern void _ErrMsg(char *strFile,unsigned int uLine,char *format,... );
+//#line "game.c" 1706
+extern void dsprintf(char *str,char *format,... );
+//#line "game.c" 1716
+extern void dsprintf_null(char *str,char *format,... );
+//#line "game.c" 1721
+extern void MoveLoop(void );
+//#line "game.c" 1768
+extern void InitPlayerGameSettings(void );
+//#line "game.c" 1799
+extern void InitRunLevel(void );
+//#line "game.c" 1853
+extern void RunLevel(void );
+//#line "game.c" 1883
+extern void __cdecl erf_custom(char *message);
+//#line "game.c" 1902
+extern void DosScreen(void );
+//#line "game.c" 1950
+extern void AlphaMessage(void );
+//#line "game.c" 2072
+extern int main(short argc,char *argv[]);
+//#line "game.c" 2361
+extern void ManualPlayerInsert(PLAYERp pp);
+//#line "game.c" 2393
+extern void BotPlayerInsert(PLAYERp pp);
+//#line "game.c" 2426
+extern void ManualPlayerDelete(PLAYERp cur_pp);
+//#line "game.c" 2461
+extern void SinglePlayInput(PLAYERp pp);
+//#line "game.c" 2603
+extern void DebugKeys(PLAYERp pp);
+//#line "game.c" 2672
+extern void FunctionKeys(PLAYERp pp);
+//#line "game.c" 2882
+extern void PauseKey(PLAYERp pp);
+//#line "game.c" 2907
+extern void getinput(SW_PACKET *loc);
+//#line "game.c" 3407
+extern void drawoverheadmap(long cposx,long cposy,long czoom,short cang);
+//#line "game.c" 3704
+extern void precache(void );
+//#line "game.c" 3745
+extern void PreCacheRange(short start_pic,short end_pic);
+//#line "game.c" 3755
+extern void DoTheCache(void );
+//#line "game.c" 3772
+extern void test_pal(void );

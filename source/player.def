@@ -1,0 +1,294 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "player.c" 812
+extern void DoPlayerSpriteThrow(PLAYERp pp);
+//#line "player.c" 819
+extern int DoPlayerSpriteReset(short SpriteNum);
+//#line "player.c" 851
+extern int SetVisHigh(void );
+//#line "player.c" 860
+extern int SetVisNorm(void );
+//#line "player.c" 867
+extern void pSetVisNorm(PANEL_SPRITEp psp);
+//#line "player.c" 873
+extern short GetDeltaAngle(short ang1,short ang2);
+//#line "player.c" 895
+extern int CompareTarget(TARGET_SORTp tgt1,TARGET_SORTp tgt2);
+//#line "player.c" 906
+extern int DoPickTarget(SPRITEp sp,WORD max_delta_ang,BOOL skip_targets);
+//#line "player.c" 1023
+extern void DoPlayerResetMovement(PLAYERp pp);
+//#line "player.c" 1035
+extern void DoPlayerTeleportPause(PLAYERp pp);
+//#line "player.c" 1060
+extern void DoPlayerTeleportToSprite(PLAYERp pp,SPRITEp sp);
+//#line "player.c" 1079
+extern void DoPlayerTeleportToOffset(PLAYERp pp);
+//#line "player.c" 1092
+extern void DoSpawnTeleporterEffect(SPRITEp sp);
+//#line "player.c" 1125
+extern void DoPlayerWarpTeleporter(PLAYERp pp);
+//#line "player.c" 1195
+extern void DoPlayerSetWadeDepth(PLAYERp pp);
+//#line "player.c" 1216
+extern void DoPlayerHeight(PLAYERp pp);
+//#line "player.c" 1226
+extern void DoPlayerJumpHeight(PLAYERp pp);
+//#line "player.c" 1239
+extern void DoPlayerCrawlHeight(PLAYERp pp);
+//#line "player.c" 1248
+extern void DoPlayerTurn(PLAYERp pp);
+//#line "player.c" 1326
+extern void DoPlayerTurnBoat(PLAYERp pp);
+//#line "player.c" 1358
+extern void DoPlayerTurnTurret(PLAYERp pp);
+//#line "player.c" 1487
+extern void SlipSlope(PLAYERp pp);
+//#line "player.c" 1501
+extern void PlayerAutoLook(PLAYERp pp);
+//#line "player.c" 1548
+extern void DoPlayerHorizon(PLAYERp pp);
+//#line "player.c" 1656
+extern void DoPlayerBob(PLAYERp pp);
+//#line "player.c" 1711
+extern void DoPlayerBeginRecoil(PLAYERp pp,short pix_amt);
+//#line "player.c" 1726
+extern void DoPlayerRecoil(PLAYERp pp);
+//#line "player.c" 1748
+extern void DoPlayerSpriteBob(PLAYERp pp,short player_height,short bob_amt,short bob_speed);
+//#line "player.c" 1761
+extern void UpdatePlayerUnderSprite(PLAYERp pp);
+//#line "player.c" 1832
+extern void UpdatePlayerSprite(PLAYERp pp);
+//#line "player.c" 1923
+extern void DoPlayerZrange(PLAYERp pp);
+//#line "player.c" 1962
+extern void DoPlayerSlide(PLAYERp pp);
+//#line "player.c" 2010
+extern void PlayerMoveHitDebug(short ret);
+//#line "player.c" 2040
+extern void PlayerCheckValidMove(PLAYERp pp);
+//#line "player.c" 2065
+extern void MoveScrollMode2D(PLAYERp pp);
+//#line "player.c" 2109
+extern void DoPlayerMenuKeys(PLAYERp pp);
+//#line "player.c" 2138
+extern void PlayerSectorBound(PLAYERp pp,long amt);
+//#line "player.c" 2162
+extern void DoPlayerMove(PLAYERp pp);
+//#line "player.c" 2326
+extern void DoPlayerSectorUpdatePreMove(PLAYERp pp);
+//#line "player.c" 2356
+extern void DoPlayerSectorUpdatePostMove(PLAYERp pp);
+//#line "player.c" 2392
+extern void PlaySOsound(short sectnum,short sound_num);
+//#line "player.c" 2407
+extern void StopSOsound(short sectnum);
+//#line "player.c" 2420
+extern void DoPlayerMoveBoat(PLAYERp pp);
+//#line "player.c" 2511
+extern void DoTankTreads(PLAYERp pp);
+//#line "player.c" 2637
+extern void DoPlayerMoveTank(PLAYERp pp);
+//#line "player.c" 2788
+extern void DoPlayerMoveTurret(PLAYERp pp);
+//#line "player.c" 2811
+extern void DoPlayerBeginJump(PLAYERp pp);
+//#line "player.c" 2841
+extern void DoPlayerBeginForceJump(PLAYERp pp);
+//#line "player.c" 2860
+extern void DoPlayerJump(PLAYERp pp);
+//#line "player.c" 2940
+extern void DoPlayerForceJump(PLAYERp pp);
+//#line "player.c" 2980
+extern void DoPlayerBeginFall(PLAYERp pp);
+//#line "player.c" 2999
+extern void DoPlayerFall(PLAYERp pp);
+//#line "player.c" 3124
+extern void DoPlayerBeginClimb(PLAYERp pp);
+//#line "player.c" 3142
+extern void DoPlayerClimb(PLAYERp pp);
+//#line "player.c" 3377
+extern void DoPlayerBeginSwim(PLAYERp pp);
+//#line "player.c" 3401
+extern int DoPlayerWadeSuperJump(PLAYERp pp);
+//#line "player.c" 3434
+extern BOOL PlayerFlyKey(PLAYERp pp);
+//#line "player.c" 3451
+extern void DoPlayerSwim(PLAYERp pp);
+//#line "player.c" 3501
+extern void DoPlayerBeginCrawl(PLAYERp pp);
+//#line "player.c" 3518
+extern BOOL PlayerFallTest(PLAYERp pp,long player_height);
+//#line "player.c" 3541
+extern void DoPlayerCrawl(PLAYERp pp);
+//#line "player.c" 3658
+extern void DoPlayerBeginFly(PLAYERp pp);
+//#line "player.c" 3683
+extern int GetSinNdx(long range,long bob_amt);
+//#line "player.c" 3692
+extern void PlayerWarpUpdatePos(PLAYERp pp);
+//#line "player.c" 3703
+extern BOOL PlayerCeilingHit(PLAYERp pp,long zlimit);
+//#line "player.c" 3713
+extern BOOL PlayerFloorHit(PLAYERp pp,long zlimit);
+//#line "player.c" 3724
+extern void DoPlayerFly(PLAYERp pp);
+//#line "player.c" 3786
+extern SPRITEp FindNearSprite(SPRITEp sp,short stat);
+//#line "player.c" 3810
+extern BOOL PlayerOnLadder(PLAYERp pp);
+//#line "player.c" 3913
+extern BOOL DoPlayerTestCrawl(PLAYERp pp);
+//#line "player.c" 3922
+extern int PlayerInDiveArea(PLAYERp pp);
+//#line "player.c" 3947
+extern int PlayerCanDive(PLAYERp pp);
+//#line "player.c" 3970
+extern int GetOverlapSector(long x,long y,short *over,short *under);
+//#line "player.c" 4037
+extern void DoPlayerWarpToUnderwater(PLAYERp pp);
+//#line "player.c" 4109
+extern void DoPlayerWarpToSurface(PLAYERp pp);
+//#line "player.c" 4196
+extern void DoPlayerDivePalette(PLAYERp pp);
+//#line "player.c" 4217
+extern void DoPlayerBeginDive(PLAYERp pp);
+//#line "player.c" 4259
+extern void DoPlayerBeginDiveNoWarp(PLAYERp pp);
+//#line "player.c" 4294
+extern void DoPlayerStopDiveNoWarp(PLAYERp pp);
+//#line "player.c" 4311
+extern void DoPlayerStopDive(PLAYERp pp);
+//#line "player.c" 4330
+extern void DoPlayerDive(PLAYERp pp);
+//#line "player.c" 4506
+extern int DoPlayerTestPlaxDeath(PLAYERp pp);
+//#line "player.c" 4522
+extern void DoPlayerCurrent(PLAYERp pp);
+//#line "player.c" 4562
+extern void DoPlayerFireOutWater(PLAYERp pp);
+//#line "player.c" 4575
+extern void DoPlayerFireOutDeath(PLAYERp pp);
+//#line "player.c" 4586
+extern void DoPlayerBeginWade(PLAYERp pp);
+//#line "player.c" 4620
+extern void DoPlayerWade(PLAYERp pp);
+//#line "player.c" 4774
+extern void DoPlayerBeginOperateBoat(PLAYERp pp);
+//#line "player.c" 4794
+extern void DoPlayerBeginOperateTank(PLAYERp pp);
+//#line "player.c" 4814
+extern void DoPlayerBeginOperateTurret(PLAYERp pp);
+//#line "player.c" 4833
+extern void FindMainSector(SECTOR_OBJECTp sop);
+//#line "player.c" 4860
+extern void DoPlayerOperateMatch(PLAYERp pp,BOOL starting);
+//#line "player.c" 4890
+extern void DoPlayerBeginOperate(PLAYERp pp);
+//#line "player.c" 4980
+extern void DoPlayerBeginRemoteOperate(PLAYERp pp,SECTOR_OBJECTp sop);
+//#line "player.c" 5068
+extern void PlayerToRemote(PLAYERp pp);
+//#line "player.c" 5085
+extern void RemoteToPlayer(PLAYERp pp);
+//#line "player.c" 5102
+extern void PlayerRemoteReset(PLAYERp pp,short sectnum);
+//#line "player.c" 5115
+extern void PlayerRemoteInit(PLAYERp pp);
+//#line "player.c" 5126
+extern void DoPlayerStopOperate(PLAYERp pp);
+//#line "player.c" 5142
+extern void DoPlayerOperateTurret(PLAYERp pp);
+//#line "player.c" 5182
+extern void DoPlayerOperateBoat(PLAYERp pp);
+//#line "player.c" 5221
+extern void DoPlayerOperateTank(PLAYERp pp);
+//#line "player.c" 5260
+extern void DoPlayerDeathJump(PLAYERp pp);
+//#line "player.c" 5302
+extern void DoPlayerDeathFall(PLAYERp pp);
+//#line "player.c" 5347
+extern void DoPlayerDeathMessage(PLAYERp pp,PLAYERp killer);
+//#line "player.c" 5375
+extern void DoPlayerBeginDie(PLAYERp pp);
+//#line "player.c" 5559
+extern int DoPlayerDeathHoriz(PLAYERp pp,short target,short speed);
+//#line "player.c" 5579
+extern int DoPlayerDeathTilt(PLAYERp pp,short target,short speed);
+//#line "player.c" 5600
+extern void DoPlayerDeathZrange(PLAYERp pp);
+//#line "player.c" 5617
+extern void DoPlayerDeathHurl(PLAYERp pp);
+//#line "player.c" 5644
+extern void DoPlayerDeathFollowKiller(PLAYERp pp);
+//#line "player.c" 5681
+extern void DoPlayerDeathCheckKeys(PLAYERp pp);
+//#line "player.c" 5740
+extern void DoPlayerHeadDebris(PLAYERp pp);
+//#line "player.c" 5754
+extern SPRITEp DoPlayerDeathCheckKick(PLAYERp pp);
+//#line "player.c" 5814
+extern void DoPlayerDeathMoveHead(PLAYERp pp);
+//#line "player.c" 5875
+extern void DoPlayerDeathFlip(PLAYERp pp);
+//#line "player.c" 5913
+extern void DoPlayerDeathDrown(PLAYERp pp);
+//#line "player.c" 5953
+extern void DoPlayerDeathBounce(PLAYERp pp);
+//#line "player.c" 5992
+extern void DoPlayerDeathCrumble(PLAYERp pp);
+//#line "player.c" 6045
+extern void DoPlayerDeathExplode(PLAYERp pp);
+//#line "player.c" 6102
+extern void DoPlayerBeginRun(PLAYERp pp);
+//#line "player.c" 6137
+extern void DoPlayerRun(PLAYERp pp);
+//#line "player.c" 6283
+extern int PlayerStateControl(SHORT SpriteNum);
+//#line "player.c" 6337
+extern void MoveSkipSavePos(void );
+//#line "player.c" 6400
+extern void PlayerTimers(PLAYERp pp);
+//#line "player.c" 6407
+extern void PlayerGlobal(PLAYERp pp);
+//#line "player.c" 6449
+extern void ResChange(void );
+//#line "player.c" 6489
+extern void UpdateScrollingMessages(void );
+//#line "player.c" 6512
+extern void domovethings(void );
+//#line "player.c" 6688
+extern void InitAllPlayers(void );
+//#line "player.c" 6740
+extern void PlayerSpawnPosition(PLAYERp pp);
+//#line "player.c" 6808
+extern void InitMultiPlayerInfo(void );
+//#line "player.c" 6885
+extern int DoFootPrints(short SpriteNum);
+//#line "player.c" 6904
+extern void CheckFootPrints(PLAYERp pp);

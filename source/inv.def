@@ -1,0 +1,82 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "inv.c" 70
+extern void UpdateMiniBar(PLAYERp pp);
+//#line "inv.c" 144
+extern void PanelInvTestSuicide(PANEL_SPRITEp psp);
+//#line "inv.c" 153
+extern PANEL_SPRITEp SpawnInventoryIcon(PLAYERp pp,short InventoryNum);
+//#line "inv.c" 185
+extern void KillPanelInv(PLAYERp pp,short InventoryNum);
+//#line "inv.c" 196
+extern void KillPlayerIcon(PLAYERp pp,PANEL_SPRITEp *pspp);
+//#line "inv.c" 203
+extern void KillAllPanelInv(PLAYERp pp);
+//#line "inv.c" 220
+extern PANEL_SPRITEp SpawnIcon(PLAYERp pp,PANEL_STATEp state);
+//#line "inv.c" 242
+extern void UseInventoryMedkit(PLAYERp pp);
+//#line "inv.c" 277
+extern void UseInventoryChemBomb(PLAYERp pp);
+//#line "inv.c" 301
+extern void UseInventoryFlashBomb(PLAYERp pp);
+//#line "inv.c" 325
+extern void UseInventoryCaltrops(PLAYERp pp);
+//#line "inv.c" 350
+extern void UseInventoryRepairKit(PLAYERp pp);
+//#line "inv.c" 373
+extern void UseInventoryCloak(PLAYERp pp);
+//#line "inv.c" 398
+extern void StopInventoryCloak(PLAYERp pp,short InventoryNum);
+//#line "inv.c" 523
+extern void DoPlayerNightVisionPalette(PLAYERp pp);
+//#line "inv.c" 546
+extern void UseInventoryNightVision(PLAYERp pp);
+//#line "inv.c" 567
+extern void StopInventoryNightVision(PLAYERp pp,short InventoryNum);
+//#line "inv.c" 593
+extern void InventoryKeys(PLAYERp pp);
+//#line "inv.c" 683
+extern void InventoryTimer(PLAYERp pp);
+//#line "inv.c" 774
+extern void SpawnInventoryBar(PLAYERp pp);
+//#line "inv.c" 804
+extern void KillInventoryBar(PLAYERp pp);
+//#line "inv.c" 811
+extern void InventoryBarUpdatePosition(PLAYERp pp);
+//#line "inv.c" 833
+extern void InventoryUse(PLAYERp pp);
+//#line "inv.c" 841
+extern void InventoryStop(PLAYERp pp,short InventoryNum);
+//#line "inv.c" 875
+extern void PlayerUpdateInventory(PLAYERp pp,short InventoryNum);
+//#line "inv.c" 934
+extern void PlayerUpdateInventoryPercent(PLAYERp pp);
+//#line "inv.c" 956
+extern void PlayerUpdateInventoryPic(PLAYERp pp);
+//#line "inv.c" 975
+extern void PlayerUpdateInventoryState(PLAYERp pp);

@@ -1,0 +1,135 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "build.c" 154
+extern int main(short argc,char **argv);
+//#line "build.c" 282
+extern int getcard(void);
+//#line "build.c" 324
+extern void showmouse(void);
+//#line "build.c" 337
+extern void editinput(void);
+//#line "build.c" 2128
+extern int changechar(char dachar,long dadir,char smooshyalign,char boundcheck);
+//#line "build.c" 2151
+extern int gettile(long tilenum);
+//#line "build.c" 2344
+extern int drawtilescreen(long pictopleft,long picbox);
+//#line "build.c" 2448
+extern void overheadeditor(void);
+//#line "build.c" 5153
+extern void getpoint(long searchxe,long searchye,long *x,long *y);
+//#line "build.c" 5169
+extern int getlinehighlight(long xplc,long yplc);
+//#line "build.c" 5198
+extern int getpointhighlight(long xplc,long yplc);
+//#line "build.c" 5226
+extern int adjustmark(long *xplc,long *yplc,short danumwalls);
+//#line "build.c" 5262
+extern int checkautoinsert(long dax,long day,short danumwalls);
+//#line "build.c" 5285
+extern int clockdir(short wallstart);
+//#line "build.c" 5321
+extern void flipwalls(short numwalls,short newnumwalls);
+//#line "build.c" 5335
+extern void insertpoint(short linehighlight,long dax,long day);
+//#line "build.c" 5383
+extern void deletepoint(int point);
+//#line "build.c" 5412
+extern int deletesector(short sucksect);
+//#line "build.c" 5453
+extern void fixspritesectors(void);
+//#line "build.c" 5482
+extern int movewalls(long start,long offs);
+//#line "build.c" 5505
+extern int checksectorpointer(short i,short sectnum);
+//#line "build.c" 5544
+extern void fixrepeats(short i);
+//#line "build.c" 5555
+extern void clearmidstatbar16(void);
+//#line "build.c" 5569
+extern int loopinside(long x,long y,short startwall);
+//#line "build.c" 5597
+extern int numloopsofsector(short sectnum);
+//#line "build.c" 5609
+extern int loopnumofsector(short sectnum,short wallnum);
+//#line "build.c" 5624
+// CTW MODIFICATION
+//extern void setfirstwall(short sectnum,short newfirstwall);
+extern int setfirstwall(short sectnum,short newfirstwall);
+// CTW MODIFICATION END
+//#line "build.c" 5683
+extern int getnumber16(char namestart[],short num,long maxnumber);
+//#line "build.c" 5721
+extern int getnumber256(char namestart[],short num,long maxnumber);
+//#line "build.c" 5767
+extern void initmenupaths(char *filename);
+//#line "build.c" 5779
+extern int getfilenames(char kind[]);
+//#line "build.c" 5812
+extern void sortfilenames(void);
+//#line "build.c" 5832
+extern int menuselect(void);
+//#line "build.c" 5956
+extern int fillsector(short sectnum,char fillcolor);
+//#line "build.c" 6027
+extern int whitelinescan(short dalinehighlight);
+//#line "build.c" 6092
+extern int loadnames(void);
+//#line "build.c" 6130
+extern void printcoords16(long posxe,long posye,short ange);
+//#line "build.c" 6162
+extern void updatenumsprites(void);
+//#line "build.c" 6172
+extern void copysector(short soursector,short destsector,short deststartwall,char copystat);
+//#line "build.c" 6226
+extern void showsectordata(short sectnum);
+//#line "build.c" 6282
+extern void showwalldata(short wallnum);
+//#line "build.c" 6338
+extern void showspritedata(short spritenum);
+//#line "build.c" 6391
+extern void inittimer(void);
+//#line "build.c" 6398
+extern void uninittimer(void);
+//#line "build.c" 6404
+extern void __interrupt __far timerhandler(void);
+//#line "build.c" 6411
+extern void initkeys(void);
+//#line "build.c" 6421
+extern void uninitkeys(void);
+//#line "build.c" 6430
+extern void __interrupt __far keyhandler(void);
+//#line "build.c" 6461
+extern void keytimerstuff(void);
+//#line "build.c" 6486
+extern void printmessage16(char name[]);
+//#line "build.c" 6507
+extern void printmessage256(char name[]);
+//#line "build.c" 6529
+extern void getclosestpointonwall(long x,long y,long dawall,long *nx,long *ny);
+//#line "build.c" 6546
+extern void initcrc(void);

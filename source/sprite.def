@@ -1,0 +1,133 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "sprite.c" 506
+extern void SetOwner(short owner,short child);
+//#line "sprite.c" 533
+extern void SetAttach(short owner,short child);
+//#line "sprite.c" 547
+extern void KillSprite(SHORT SpriteNum);
+//#line "sprite.c" 715
+extern void ChangeState(short SpriteNum,STATEp statep);
+//#line "sprite.c" 726
+extern void change_sprite_stat(short SpriteNum,short stat);
+//#line "sprite.c" 763
+extern USERp SpawnUser(short SpriteNum,short id,STATEp state);
+//#line "sprite.c" 837
+extern SECT_USERp GetSectUser(short sectnum);
+//#line "sprite.c" 853
+extern SHORT SpawnSprite(short stat,short id,STATEp state,short sectnum,int x,int y,int z,int init_ang,int vel);
+//#line "sprite.c" 907
+extern void PicAnimOff(short picnum);
+//#line "sprite.c" 930
+extern BOOL IconSpawn(SPRITEp sp);
+//#line "sprite.c" 950
+extern BOOL ActorTestSpawn(SPRITEp sp);
+//#line "sprite.c" 982
+extern BOOL ActorSpawn(SPRITEp sp);
+//#line "sprite.c" 1260
+extern void IconDefault(short SpriteNum);
+//#line "sprite.c" 1274
+extern void PreMapCombineFloors(void );
+//#line "sprite.c" 1433
+extern void SpriteSetupPost(void );
+//#line "sprite.c" 1478
+extern void SpriteSetup(void );
+//#line "sprite.c" 3385
+extern BOOL ItemSpotClear(SPRITEp sip,short statnum,short id);
+//#line "sprite.c" 3405
+extern void SetupItemForJump(SPRITEp sip,short SpriteNum);
+//#line "sprite.c" 3427
+extern int SpawnItemsMatch(short match);
+//#line "sprite.c" 3854
+// CTW MODIFICATION
+//extern void NewStateGroup(short SpriteNum,STATEp StateGroup[]);
+extern int NewStateGroup(short SpriteNum,STATEp StateGroup[]);
+// CTW MODIFICATION END
+//#line "sprite.c" 3880
+extern BOOL SpriteOverlap(SHORT spritenum_a,SHORT spritenum_b);
+//#line "sprite.c" 3920
+extern BOOL SpriteOverlapZ(SHORT spritenum_a,SHORT spritenum_b,long z_overlap);
+//#line "sprite.c" 3953
+extern void getzrangepoint(long x,long y,long z,short sectnum,LONGp ceilz,LONGp ceilhit,LONGp florz,LONGp florhit);
+//#line "sprite.c" 4078
+extern void DoActorZrange(short SpriteNum);
+//#line "sprite.c" 4124
+extern int DoActorGlobZ(short SpriteNum);
+//#line "sprite.c" 4160
+extern BOOL ActorDrop(short SpriteNum,long x,long y,long z,short new_sector,short min_height);
+//#line "sprite.c" 4224
+extern BOOL DropAhead(short SpriteNum,short min_height);
+//#line "sprite.c" 4273
+extern int move_actor(short SpriteNum,long xchange,long ychange,long zchange);
+//#line "sprite.c" 4371
+extern int DoStayOnFloor(short SpriteNum);
+//#line "sprite.c" 4379
+extern int DoGrating(short SpriteNum);
+//#line "sprite.c" 4417
+extern int DoSpriteFade(short SpriteNum);
+//#line "sprite.c" 4447
+extern int SpearOnFloor(short SpriteNum);
+//#line "sprite.c" 4465
+extern int SpearOnCeiling(short SpriteNum);
+//#line "sprite.c" 4483
+extern int DoKey(short SpriteNum);
+//#line "sprite.c" 4497
+extern int DoCoin(short SpriteNum);
+//#line "sprite.c" 4535
+extern int KillGet(short SpriteNum);
+//#line "sprite.c" 4578
+extern int DoSpawnItemTeleporterEffect(SPRITEp sp);
+//#line "sprite.c" 4598
+extern void ChoosePlayerGetSound(PLAYERp pp);
+//#line "sprite.c" 4637
+extern int DoGet(short SpriteNum);
+//#line "sprite.c" 5210
+extern void SetEnemyActive(short SpriteNum);
+//#line "sprite.c" 5220
+extern void SetEnemyInactive(short SpriteNum);
+//#line "sprite.c" 5232
+extern void ProcessActiveVars(short SpriteNum);
+//#line "sprite.c" 5255
+extern void AdjustActiveRange(PLAYERp pp,short SpriteNum,long dist);
+//#line "sprite.c" 5370
+extern void SpriteControl(void );
+//#line "sprite.c" 5617
+extern int StateControl(SHORT SpriteNum);
+//#line "sprite.c" 5709
+extern int move_sprite(short spritenum,long xchange,long ychange,long zchange,long ceildist,long flordist,ULONG cliptype,long numtics);
+//#line "sprite.c" 5816
+extern int pushmove_sprite(short SpriteNum);
+//#line "sprite.c" 5840
+extern void MissileWarpUpdatePos(short SpriteNum,short sectnum);
+//#line "sprite.c" 5851
+extern void ActorWarpUpdatePos(short SpriteNum,short sectnum);
+//#line "sprite.c" 5867
+extern int MissileWaterAdjust(short SpriteNum);
+//#line "sprite.c" 5881
+extern int MissileZrange(short SpriteNum);
+//#line "sprite.c" 5902
+extern int move_missile(short spritenum,long xchange,long ychange,long zchange,long ceildist,long flordist,ULONG cliptype,long numtics);

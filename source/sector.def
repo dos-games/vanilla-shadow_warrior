@@ -1,0 +1,160 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "sector.c" 59
+extern void SetSectorWallBits(short sectnum,long bit_mask,BOOL set_sectwall,BOOL set_nextwall);
+//#line "sector.c" 79
+extern void WallSetupDontMove(void );
+//#line "sector.c" 107
+extern void WallSetup(void );
+//#line "sector.c" 369
+extern void SectorLiquidSet(short i);
+//#line "sector.c" 414
+extern void SectorSetup(void );
+//#line "sector.c" 711
+extern void SectorMidPoint(short sectnum,long *xmid,long *ymid,long *zmid);
+//#line "sector.c" 734
+extern DOOR_AUTO_CLOSEp FindDoorAutoClose(short SectorNum);
+//#line "sector.c" 754
+extern DOOR_AUTO_CLOSEp SetDoorAutoClose(short SectorNum,short Type);
+//#line "sector.c" 779
+extern void ResetDoorAutoClose(short SectorNum);
+//#line "sector.c" 793
+extern void DoSwingingDoors(void );
+//#line "sector.c" 841
+extern int MoveDoorRotate(short door_sector,short auto_close);
+//#line "sector.c" 891
+extern void DoSpringBoard(PLAYERp pp,short sectnum);
+//#line "sector.c" 926
+extern void DoSpringBoardDown(void );
+//#line "sector.c" 958
+extern int DoSlidingDoor(short sectnum,short auto_close);
+//#line "sector.c" 1106
+extern void DoDoorsClose(void );
+//#line "sector.c" 1156
+extern short FindSectorByTag(long x,long y,long tag);
+//#line "sector.c" 1186
+extern short FindSectorByTag_Wall(short wallnum,long tag);
+//#line "sector.c" 1192
+extern short FindSectorByTag_Sprite(short SpriteNum,long tag);
+//#line "sector.c" 1199
+extern short FindSectorMidByTag(short sectnum,long tag);
+//#line "sector.c" 1234
+extern short FindNextSectorByTag(short sectnum,long tag);
+//#line "sector.c" 1260
+extern long SectorDistance(short sect1,long sect2);
+//#line "sector.c" 1276
+extern long SectorDistanceByMid(short sect1,long sect2);
+//#line "sector.c" 1288
+extern short DoSpawnActorTrigger(short match);
+//#line "sector.c" 1332
+extern int OperateSector(short sectnum,short player_is_operating);
+//#line "sector.c" 1427
+extern int OperateWall(short wallnum,short player_is_operating);
+//#line "sector.c" 1439
+extern short AnimateSwitch(SPRITEp sp,short tgt_value);
+//#line "sector.c" 1518
+extern void SectorExp(short SpriteNum,short sectnum,short orig_ang,long zh);
+//#line "sector.c" 1561
+extern void DoExplodeSector(short match);
+//#line "sector.c" 1615
+extern int DoSpawnSpot(short SpriteNum);
+//#line "sector.c" 1637
+extern void DoSpawnSpotsForKill(short match);
+//#line "sector.c" 1666
+extern void DoSpawnSpotsForDamage(short match);
+//#line "sector.c" 1694
+extern void DoSoundSpotMatch(short match,short sound_num,short sound_type);
+//#line "sector.c" 1775
+extern void DoSoundSpotStopSound(short match);
+//#line "sector.c" 1791
+extern void DoStopSoundSpotMatch(short match);
+//#line "sector.c" 1808
+extern BOOL TestKillSectorObject(SECTOR_OBJECTp sop);
+//#line "sector.c" 1824
+extern short DoSectorObjectKillMatch(short match);
+//#line "sector.c" 1842
+extern BOOL SearchExplodeSectorMatch(short match);
+//#line "sector.c" 1863
+extern void KillMatchingCrackSprites(short match);
+//#line "sector.c" 1883
+extern void WeaponExplodeSectorInRange(short weapon);
+//#line "sector.c" 1923
+extern void ShootableSwitch(short SpriteNum,short Weapon);
+//#line "sector.c" 1943
+extern void DoDeleteSpriteMatch(short match);
+//#line "sector.c" 1998
+extern void DoChangorMatch(short match);
+//#line "sector.c" 2051
+extern void DoMatchEverything(PLAYERp pp,short match,short state);
+//#line "sector.c" 2096
+extern BOOL ComboSwitchTest(short combo_type,short match);
+//#line "sector.c" 2124
+extern int OperateSprite(short SpriteNum,short player_is_operating);
+//#line "sector.c" 2345
+extern int DoTrapReset(short match);
+//#line "sector.c" 2373
+extern int DoTrapMatch(short match);
+//#line "sector.c" 2430
+extern void OperateTripTrigger(PLAYERp pp);
+//#line "sector.c" 2566
+extern void OperateContinuousTrigger(PLAYERp pp);
+//#line "sector.c" 2629
+extern short PlayerTakeSectorDamage(PLAYERp pp);
+//#line "sector.c" 2647
+extern BOOL NearThings(PLAYERp pp);
+//#line "sector.c" 2756
+extern void NearTagList(NEAR_TAG_INFOp ntip,PLAYERp pp,long z,long dist,long type,long count);
+//#line "sector.c" 2861
+extern void BuildNearTagList(NEAR_TAG_INFOp ntip,long size,PLAYERp pp,long z,long dist,long type,long count);
+//#line "sector.c" 2872
+extern void PlayerOperateEnv(PLAYERp pp);
+//#line "sector.c" 3061
+extern void DoSineWaveFloor(void );
+//#line "sector.c" 3126
+extern void DoSineWaveWall(void );
+//#line "sector.c" 3156
+extern void DoAnim(long numtics);
+//#line "sector.c" 3216
+extern void AnimClear(void );
+//#line "sector.c" 3234
+extern short AnimGetGoal(long *animptr);
+//#line "sector.c" 3252
+extern void AnimDelete(long *animptr);
+//#line "sector.c" 3282
+extern short AnimSet(long *animptr,long thegoal,long thevel);
+//#line "sector.c" 3314
+extern short AnimSetCallback(short anim_ndx,ANIM_CALLBACKp call,ANIM_DATAp data);
+//#line "sector.c" 3328
+extern short AnimSetVelAdj(short anim_ndx,short vel_adj);
+//#line "sector.c" 3341
+extern void initlava(void );
+//#line "sector.c" 3393
+extern void movelava(char *dapic);
+//#line "sector.c" 3508
+extern void DoPanning(void );
+//#line "sector.c" 3564
+extern void DoSector(void );

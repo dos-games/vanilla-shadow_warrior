@@ -1,0 +1,100 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "menus.c" 280
+extern BOOL MNU_DoParentalPassword(UserCall call,MenuItem_p item);
+//#line "menus.c" 376
+extern BOOL MNU_OrderCustom(UserCall call,MenuItem *item);
+//#line "menus.c" 454
+extern void ExitMenus(void );
+//#line "menus.c" 575
+extern BOOL MNU_QuitCustom(UserCall call,MenuItem_p item);
+//#line "menus.c" 629
+extern BOOL MNU_QuickLoadCustom(UserCall call,MenuItem_p item);
+//#line "menus.c" 686
+extern void MNU_InitMenus(void );
+//#line "menus.c" 739
+extern void MNU_MeasureStringLarge(char *string,short *w,short *h);
+//#line "menus.c" 784
+extern void MNU_DrawStringLarge(short x,short y,char *string);
+//#line "menus.c" 826
+extern void MNU_MeasureString(char *string,short *w,short *h);
+//#line "menus.c" 868
+extern void MNU_DrawString(short x,short y,char *string,short shade,short pal);
+
+extern void MNU_MeasureSmallString(char *string,short *w,short *h);
+extern void MNU_DrawSmallString(short x,short y,char *string,short shade,short pal);
+
+//#line "menus.c" 969
+extern signed char MNU_InputString(char *name,short pix_width);
+//#line "menus.c" 1154
+extern BOOL MNU_LoadSaveTouchupCustom(UserCall call,MenuItem_p item);
+//#line "menus.c" 1267
+extern BOOL MNU_ShareWareCheck(MenuItem *item);
+//#line "menus.c" 1276
+extern BOOL MNU_MenuLevelCheck(MenuItem *item);
+//#line "menus.c" 1289
+extern BOOL MNU_MouseCheck(MenuItem *item);
+//#line "menus.c" 1304
+extern BOOL MNU_MusicCheck(MenuItem *item);
+//#line "menus.c" 1319
+extern BOOL MNU_FxCheck(MenuItem *item);
+//#line "menus.c" 1334
+extern BOOL MNU_MusicFxCheck(MenuItem *item);
+//#line "menus.c" 1348
+extern void ModeChange(short width,short height);
+//#line "menus.c" 1376
+extern void MNU_DoButton(MenuItem_p item, BOOL);
+//#line "menus.c" 1582
+extern void MNU_DoSlider(short dir,MenuItem_p item, BOOL draw);
+//#line "menus.c" 1957
+extern void MNU_ItemPreProcess(MenuGroup *group);
+//#line "menus.c" 2195
+extern void MNU_DrawMenu(void );
+//#line "menus.c" 2321
+extern void SetupMenu(void );
+//#line "menus.c" 2342
+extern void MNU_DoMenu(CTLType type,PLAYERp pp);
+//#line "menus.c" 2420
+extern void MNU_CheckForMenus(void );
+//#line "menus.c" 2444
+extern void MNU_CheckForMenusAnyKey(void );
+//#line "menus.c" 2497
+extern void WaitForVsync(void );
+//#line "menus.c" 2518
+extern void Get_Palette(unsigned char *pal);
+//#line "menus.c" 2538
+extern void Set_Palette(unsigned char *buff);
+//#line "menus.c" 2562
+extern void Fade_Timer(int clicks);
+//#line "menus.c" 2573
+extern void FadeIn(unsigned char startcolor,unsigned int clicks);
+//#line "menus.c" 2632
+extern void FadeOut(unsigned char targetcolor,unsigned int clicks);
+//#line "menus.c" 2716
+extern void SetFadeAmt(PLAYERp pp,short damage,unsigned char startcolor);
+//#line "menus.c" 2832
+extern void DoPaletteFlash(PLAYERp pp);

@@ -1,0 +1,50 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "demo.c" 59
+extern void DemoSetup(void );
+//#line "demo.c" 86
+extern void DemoRecordSetup(void );
+//#line "demo.c" 99
+extern void DemoPlaySetup(void );
+//#line "demo.c" 117
+extern void DemoWriteHeader(void );
+//#line "demo.c" 161
+extern void DemoReadHeader(void );
+//#line "demo.c" 214
+extern void DemoDebugWrite(void );
+//#line "demo.c" 230
+extern void DemoWriteBuffer(void );
+//#line "demo.c" 237
+extern void DemoReadBuffer(void );
+//#line "demo.c" 244
+extern void DemoBackupBuffer(void );
+//#line "demo.c" 274
+extern void DemoTerm(void );
+//#line "demo.c" 319
+extern void DemoPlayBack(void );
+//#line "demo.c" 510
+extern void ScenePlayBack(void );

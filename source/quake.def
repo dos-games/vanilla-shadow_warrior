@@ -1,0 +1,52 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "quake.c" 32
+extern short CopyQuakeSpotToOn(SPRITEp sp);
+//#line "quake.c" 47
+extern void DoQuakeMatch(short match);
+//#line "quake.c" 77
+extern void ProcessQuakeOn(void );
+//#line "quake.c" 96
+extern void ProcessQuakeSpot(void );
+//#line "quake.c" 139
+extern void QuakeViewChange(PLAYERp pp,long *z_diff,long *x_diff,long *y_diff,short *ang_diff);
+//#line "quake.c" 211
+extern int SpawnQuake(short sectnum,long x,long y,long z,short tics,short amt,long radius);
+//#line "quake.c" 238
+extern BOOL SetQuake(PLAYERp pp,short tics,short amt);
+//#line "quake.c" 245
+extern int SetExpQuake(SHORT Weapon);
+//#line "quake.c" 254
+extern int SetGunQuake(SHORT SpriteNum);
+//#line "quake.c" 265
+extern int SetPlayerQuake(PLAYERp pp);
+//#line "quake.c" 273
+extern int SetNuclearQuake(SHORT Weapon);
+//#line "quake.c" 282
+extern int SetSumoQuake(SHORT SpriteNum);
+//#line "quake.c" 291
+extern int SetSumoFartQuake(SHORT SpriteNum);

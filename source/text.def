@@ -1,0 +1,64 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "text.c" 38
+extern void DisplaySummaryString(PLAYERp pp,short xs,short ys,short color,short shade,CHARp buffer);
+//#line "text.c" 74
+extern PANEL_SPRITEp pClearTextLineID(PLAYERp pp,short id,long y,short pri);
+//#line "text.c" 98
+extern PANEL_SPRITEp pMenuClearTextLineID(PLAYERp pp,short id,long y,short pri);
+//#line "text.c" 120
+extern void pClearTextLine(PLAYERp pp,long y);
+//#line "text.c" 126
+extern void StringTimer(PANEL_SPRITEp psp);
+//#line "text.c" 136
+extern void PutStringTimer(PLAYERp pp,short x,short y,char *string,short seconds);
+//#line "text.c" 183
+extern void KillString(PLAYERp pp,short y);
+//#line "text.c" 189
+extern void DisplayPanelNumber(PLAYERp pp,short xs,short ys,int number);
+//#line "text.c" 212
+extern void DisplayMiniBarNumber(PLAYERp pp,short xs,short ys,int number);
+//#line "text.c" 240
+extern void DisplayMiniBarSmString(PLAYERp pp,short xs,short ys, short pal, CHARp buffer);
+//#line "text.c" 266
+extern void DisplaySmString(PLAYERp pp,short xs,short ys,short pal, CHARp buffer);
+//#line "text.c" 290
+extern void DisplayFragString(PLAYERp pp,short xs,short ys,CHARp buffer);
+//#line "text.c" 321
+extern void DisplayFragNumbers(PLAYERp pp);
+//#line "text.c" 361
+extern void DisplayFragNames(PLAYERp pp);
+//#line "text.c" 399
+extern void PutStringInfo(PLAYERp pp,char *string);
+//#line "text.c" 410
+extern void PutStringInfoLine(PLAYERp pp,char *string);
+//#line "text.c" 428
+extern void PutStringInfoLine2(PLAYERp pp,char *string);
+//#line "text.c" 445
+extern void pMenuClearTextLine(PLAYERp pp);
+//#line "text.c" 454
+extern void PutStringPlayerInfo(PLAYERp pp,char *string);

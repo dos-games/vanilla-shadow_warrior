@@ -1,0 +1,88 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "sounds.c" 275
+extern void SoundCallBack(unsigned long num);
+//#line "sounds.c" 286
+extern void UnInitSound(void );
+//#line "sounds.c" 293
+extern void InitFX(void );
+//#line "sounds.c" 315
+extern void InitMusic(void );
+//#line "sounds.c" 323
+extern void ExternalSoundMod(void );
+//#line "sounds.c" 366
+extern int PlaySong(char *song_file_name);
+//#line "sounds.c" 383
+extern void StopFX(void );
+//#line "sounds.c" 393
+extern int StopSong(void );
+//#line "sounds.c" 405
+extern void StopSound(void );
+//#line "sounds.c" 421
+extern short SoundDist(long x,long y,long z,long basedist);
+//#line "sounds.c" 449
+extern short SoundAngle(long x,long y);
+//#line "sounds.c" 468
+extern int PlaySound(int num,long *x,long *y,long *z,Voc3D_Flags flags);
+//#line "sounds.c" 738
+extern BOOL OpenSound(VOC_INFOp vp,long *handle,long *length);
+//#line "sounds.c" 753
+extern int ReadSound(long handle,VOC_INFOp vp,long length);
+//#line "sounds.c" 766
+extern char *LoadMidi(char *filename);
+//#line "sounds.c" 805
+extern void FlipStereo(void );
+//#line "sounds.c" 811
+extern void SoundStartup(void );
+//#line "sounds.c" 876
+extern void SoundShutdown(void );
+//#line "sounds.c" 902
+extern void MusicStartup(void );
+//#line "sounds.c" 940
+extern void MusicShutdown(void );
+//#line "sounds.c" 976
+extern VOC3D_INFOp InitNew3DSound(VOC3D_INFOp v3p);
+//#line "sounds.c" 990
+extern VOC3D_INFOp Insert3DSound(void );
+//#line "sounds.c" 1025
+extern void DeleteNoSoundOwner(short spritenum);
+//#line "sounds.c" 1078
+extern void Delete3DSounds(void );
+//#line "sounds.c" 1149
+extern void DoTimedSound(VOC3D_INFOp p);
+//#line "sounds.c" 1181
+extern void StopAmbientSound(void );
+//#line "sounds.c" 1209
+extern void StartAmbientSound(void );
+//#line "sounds.c" 1231
+extern void DoUpdateSounds3D(void );
+//#line "sounds.c" 1458
+extern void Terminate3DSounds(void );
+//#line "sounds.c" 1481
+extern void Set3DSoundOwner(short spritenum);
+//#line "sounds.c" 1503
+extern void PlaySpriteSound(short spritenum,int attrib_ndx,Voc3D_Flags flags);

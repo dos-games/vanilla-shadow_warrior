@@ -1,0 +1,124 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "ai.c" 32
+extern void DebugMoveHit(short SpriteNum);
+//#line "ai.c" 69
+extern BOOL ActorMoveHitReact(short SpriteNum);
+//#line "ai.c" 119
+extern int RandomRange(int range,char *file,unsigned int line);
+//#line "ai.c" 169
+extern int StdRandomRange(int range);
+//#line "ai.c" 191
+extern BOOL ActorFlaming(short SpriteNum);
+//#line "ai.c" 214
+extern void DoActorSetSpeed(short SpriteNum,BYTE speed);
+//#line "ai.c" 239
+extern ANIMATORp ChooseAction(DECISION decision[]);
+//#line "ai.c" 263
+extern short ChooseActionNumber(short decision[]);
+//#line "ai.c" 280
+extern int DoActorNoise(ANIMATORp Action,short SpriteNum);
+//#line "ai.c" 342
+extern int CanSeePlayer(short SpriteNum);
+//#line "ai.c" 362
+extern int CanHitPlayer(short SpriteNum);
+//#line "ai.c" 427
+extern int DoActorPickClosePlayer(short SpriteNum);
+//#line "ai.c" 451
+extern int CloseRangeDist(SPRITEp sp1,SPRITEp sp2);
+//#line "ai.c" 481
+extern ANIMATORp DoActorActionDecide(short SpriteNum);
+//#line "ai.c" 610
+extern int InitActorDecide(short SpriteNum);
+//#line "ai.c" 630
+extern int DoActorDecide(short SpriteNum);
+//#line "ai.c" 658
+extern int InitActorAlertNoise(short SpriteNum);
+//#line "ai.c" 674
+extern int InitActorAmbientNoise(short SpriteNum);
+//#line "ai.c" 689
+extern int InitActorAttackNoise(short SpriteNum);
+//#line "ai.c" 704
+extern int InitActorPainNoise(short SpriteNum);
+//#line "ai.c" 719
+extern int InitActorDieNoise(short SpriteNum);
+//#line "ai.c" 734
+extern int InitActorExtra1Noise(short SpriteNum);
+//#line "ai.c" 749
+extern int InitActorExtra2Noise(short SpriteNum);
+//#line "ai.c" 764
+extern int InitActorExtra3Noise(short SpriteNum);
+//#line "ai.c" 779
+extern int InitActorExtra4Noise(short SpriteNum);
+//#line "ai.c" 794
+extern int InitActorExtra5Noise(short SpriteNum);
+//#line "ai.c" 809
+extern int InitActorExtra6Noise(short SpriteNum);
+//#line "ai.c" 829
+extern int InitActorMoveCloser(short SpriteNum);
+//#line "ai.c" 846
+extern int DoActorCantMoveCloser(short SpriteNum);
+//#line "ai.c" 879
+extern int DoActorMoveCloser(short SpriteNum);
+//#line "ai.c" 953
+extern short FindTrackToPlayer(USERp u);
+//#line "ai.c" 1038
+extern short FindTrackAwayFromPlayer(USERp u);
+//#line "ai.c" 1085
+extern short FindWanderTrack(USERp u);
+//#line "ai.c" 1127
+extern int InitActorRunAway(short SpriteNum);
+//#line "ai.c" 1158
+extern int InitActorRunToward(short SpriteNum);
+//#line "ai.c" 1182
+extern int InitActorAttack(short SpriteNum);
+//#line "ai.c" 1261
+extern int DoActorAttack(short SpriteNum);
+//#line "ai.c" 1297
+extern int InitActorEvade(short SpriteNum);
+//#line "ai.c" 1325
+extern int InitActorWanderAround(short SpriteNum);
+//#line "ai.c" 1350
+extern int InitActorFindPlayer(short SpriteNum);
+//#line "ai.c" 1383
+extern int InitActorDuck(short SpriteNum);
+//#line "ai.c" 1418
+extern int DoActorDuck(short SpriteNum);
+//#line "ai.c" 1435
+extern int DoActorMoveJump(short SpriteNum);
+//#line "ai.c" 1457
+extern int move_scan(short SpriteNum,short ang,long dist,long *stopx,long *stopy,long *stopz,short *stopsect);
+//#line "ai.c" 1523
+extern int FindNewAngle(short SpriteNum,char dir,long DistToMove);
+//#line "ai.c" 1656
+extern int InitActorReposition(short SpriteNum);
+//#line "ai.c" 1763
+extern int DoActorReposition(short SpriteNum);
+//#line "ai.c" 1794
+extern int InitActorPause(short SpriteNum);
+//#line "ai.c" 1810
+extern int DoActorPause(short SpriteNum);

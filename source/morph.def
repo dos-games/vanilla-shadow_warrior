@@ -1,0 +1,46 @@
+//-------------------------------------------------------------------------
+/*
+Copyright (C) 1997, 2005 - 3D Realms Entertainment
+
+This file is part of Shadow Warrior version 1.2
+
+Shadow Warrior is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  
+
+See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+
+Original Source: 1997 - Frank Maddin and Jim Norwood
+Prepared for public release: 03/28/2005 - Charlie Wiederhold, 3D Realms
+*/
+//-------------------------------------------------------------------------
+
+//#line "morph.c" 19
+extern short DoSectorObjectSetScale(short match);
+//#line "morph.c" 92
+extern short DoSOevent(short match,short state);
+//#line "morph.c" 167
+extern void ScaleSectorObject(SECTOR_OBJECTp sop);
+//#line "morph.c" 237
+extern void ScaleRandomPoint(SECTOR_OBJECTp sop,short k,short ang,long x,long y,long *dx,long *dy);
+//#line "morph.c" 280
+extern void MorphTornado(SECTOR_OBJECTp sop);
+//#line "morph.c" 363
+extern void MorphFloor(SECTOR_OBJECTp sop);
+//#line "morph.c" 444
+extern void SOBJ_AlignFloorToPoint(SECTOR_OBJECTp sop,long x,long y,long z);
+//#line "morph.c" 460
+extern void SOBJ_AlignCeilingToPoint(SECTOR_OBJECTp sop,long x,long y,long z);
+//#line "morph.c" 476
+extern void SOBJ_AlignFloorCeilingToPoint(SECTOR_OBJECTp sop,long x,long y,long z);
+//#line "morph.c" 494
+extern void SpikeFloor(SECTOR_OBJECTp sop);
